@@ -48,6 +48,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    'nuxt-purgecss',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify'
   ],
@@ -87,11 +88,10 @@ export default {
   webfontloader: {
     google: {
       families: [
-        'Open+Sans:300,400,500,700',
-        'Material+Icons'
+        'Open+Sans:300,400,500,700'
       ],
       urls: [
-        'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Material+Icons&display=swap'
+        'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700&display=swap'
       ]
     }
   },
@@ -99,10 +99,7 @@ export default {
   vuetify: {
     treeShake: true,
     customVariables: ['~/assets/variables.scss'],
-    defaultAssets: {
-      font: false,
-      icons: 'mdi',
-    },
+    defaultAssets: false,
     theme: {
       dark: false,
       themes: {

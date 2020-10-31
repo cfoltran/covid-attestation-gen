@@ -17,6 +17,7 @@
     "lint"
   ],
   "dependencies": {
+    "@mdi/js": "^5.8.55",
     "@nuxt/http": "latest",
     "@nuxtjs/axios": "5.12.2",
     "@nuxtjs/dotenv": "1.4.1",
@@ -31,6 +32,7 @@
     "cors": "2.8.5",
     "helmet": "4.1.0",
     "nuxt": "latest",
+    "nuxt-purgecss": "^1.0.0",
     "nuxt-webfontloader": "^1.1.0",
     "passport": "0.4.1",
     "puppeteer": "^5.4.1",

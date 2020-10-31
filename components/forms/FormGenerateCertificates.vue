@@ -27,7 +27,10 @@
       class="mt-10"
       :error-messages="reasonErrors"
     >
-      <v-radio>
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -47,7 +50,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -68,7 +75,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -78,7 +89,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -88,7 +103,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -97,7 +116,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -110,7 +133,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -119,7 +146,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -128,7 +159,11 @@
           </v-container>
         </template>
       </v-radio>
-      <v-radio class="mt-3">
+      <v-radio
+        :off-icon="mdiRadioboxBlank"
+        :on-icon="mdiRadioboxMarked"
+        class="mt-3"
+      >
         <template v-slot:label>
           <v-container>
             <v-row>
@@ -149,6 +184,8 @@
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
+import { mdiRadioboxBlank, mdiRadioboxMarked } from '@mdi/js'
+
 import BaseApiFormValidation from '~/mixins/BaseApiFormValidation'
 
 /* eslint-disable no-multi-str */
@@ -162,6 +199,8 @@ export default {
   },
   data () {
     return {
+      mdiRadioboxBlank,
+      mdiRadioboxMarked,
       hour: new Date().getHours(),
       minutes: new Date().getMinutes(),
       pdf_link: '',
@@ -245,7 +284,6 @@ export default {
             document.body.appendChild(a)
             a.click()
             document.body.removeChild(a)
-            // window.open(fileURL)
           }
           this.pdf_link = link.fileData
           this.is_loading = false

@@ -10,7 +10,7 @@
         fixed
       >
         <v-btn icon href="https://github.com/cfoltran/covid-attestation-gen" target="_blank">
-          <v-icon>mdi-github</v-icon>
+          <v-icon>{{ mdiGithub }}</v-icon>
         </v-btn>
       </v-footer>
     </v-app>
@@ -18,10 +18,16 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import { mdiGithub } from '@mdi/js'
 import colorModeMixin from '~/mixins/colorMode'
 
 export default {
   mixins: [colorModeMixin],
+  data () {
+    return {
+      mdiGithub
+    }
+  },
   computed: {
     ...mapGetters(['token', 'isAuthenticated'])
   }
