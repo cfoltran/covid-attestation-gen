@@ -48,7 +48,6 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    'nuxt-purgecss',
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify'
   ],
@@ -57,7 +56,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // 'nuxt-webfontloader',
+    'nuxt-webfontloader',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',

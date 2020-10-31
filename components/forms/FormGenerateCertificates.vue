@@ -280,6 +280,7 @@ export default {
             const a = document.createElement('a')
             a.href = window.URL.createObjectURL(blob)
             a.style.display = 'none'
+            a.download = link.data.link
             a.target = '_blank'
             document.body.appendChild(a)
             a.click()
