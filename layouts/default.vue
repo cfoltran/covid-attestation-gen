@@ -5,6 +5,7 @@
         <nuxt />
       </v-main>
       <v-footer
+        class="mt-10"
         app
         fixed
       >

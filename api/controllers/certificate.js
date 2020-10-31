@@ -16,7 +16,12 @@ export const certificate = async (req, res) => {
       hash
     } = req.body
     const browser = await puppeteer.launch({
-      headless: true
+      args: [
+        '--no-sandbox',
+        '--headless',
+        '--disable-gpu',
+        '--disable-dev-shm-usage'
+      ]
     })
     const dir = `./my-downloads/${hash}`
     const page = await browser.newPage()
