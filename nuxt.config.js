@@ -56,6 +56,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-purgecss',
     'nuxt-webfontloader',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -65,7 +66,24 @@ export default {
     '@nuxtjs/robots',
     '@nuxtjs/sitemap'
   ],
-
+  purgeCSS: {
+    mode: 'webpack',
+    paths: [
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'node_modules/vuetify/src/**/*.js',
+      'node_modules/vuetify/src/**/*.ts'
+    ],
+    whitelist: ['body', 'html', 'nuxt-progress'],
+    extractors: [
+      {
+        extractor: content => content.match(/[A-z0-9-:\\/]+/g) || [],
+        extensions: ['html', 'vue', 'js']
+      }
+    ]
+  },
   robots: [
     {
       UserAgent: '*'
@@ -126,7 +144,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    'redirect-ssl',
+    // 'redirect-ssl',
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],

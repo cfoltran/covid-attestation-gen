@@ -176,6 +176,9 @@
     <v-row>
       <v-btn class="mx-auto mb-5" :loading="is_loading" @click="generate">
         Générer mon attestation
+        <template slot="loader">
+          {{ loading_dot }}
+        </template>
       </v-btn>
     </v-row>
   </v-container>
@@ -201,6 +204,8 @@ export default {
     return {
       mdiRadioboxBlank,
       mdiRadioboxMarked,
+      interval_loading_dot: '',
+      loading_dot: '',
       hour: new Date().getHours(),
       minutes: new Date().getMinutes(),
       pdf_link: '',
@@ -268,29 +273,49 @@ export default {
       const blob = new Blob(byteArrays, { type: contentType })
       return blob
     },
+    changeDotLoading () {
+      const vm = this
+      this.interval_loading_dot = setInterval(() => {
+        vm.loading_dot += '.'
+      }, 700)
+    },
     async generate () {
       this.validate()
       if (this.valid) {
         try {
+          this.loading_dot = 'Chargement'
+          this.changeDotLoading()
           this.is_loading = true
           const link = await this.$axios.post('/certificate', this.payload)
           console.log(link)
           const blob = this.b64toBlob(link.data.fileData, 'application/pdf')
           if (blob) {
-            const a = document.createElement('a')
-            a.href = window.URL.createObjectURL(blob)
-            a.style.display = 'none'
-            a.download = link.data.link
-            a.target = '_blank'
-            document.body.appendChild(a)
-            a.click()
-            document.body.removeChild(a)
+            const userAgent = window.navigator.userAgent
+            if (window.navigator.msSaveOrOpenBlob) { // IE 11+
+              window.navigator.msSaveOrOpenBlob(blob, link.data.link)
+            } else if (userAgent.match('FxiOS')) { // FF iOS
+              alert('Cannot display on FF iOS')
+            } else if (userAgent.match('CriOS')) { // Chrome iOS
+              const reader = new FileReader()
+              reader.onloadend = () => {
+                window.webkitURL.open(reader.result)
+              }
+              reader.readAsDataURL(blob)
+            } else if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) { // Safari & Opera iOS
+              const url = window.webkitURL.createObjectURL(blob)
+              window.location.href = url
+            } else {
+              const fileURL = window.URL.createObjectURL(blob)
+              window.open(fileURL)
+            }
           }
           this.pdf_link = link.fileData
           this.is_loading = false
+          clearInterval(this.interval_loading_dot)
         } catch (error) {
           this.error = error
           this.is_loading = false
+          clearInterval(this.interval_loading_dot)
           console.error(error)
         }
       }
