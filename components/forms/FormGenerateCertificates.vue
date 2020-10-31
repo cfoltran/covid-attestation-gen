@@ -1,11 +1,14 @@
 <template>
   <v-container class="mt-10">
-    <v-alert
-      v-if="error"
-      type="error"
+    <v-snackbar
+      :value="error"
+      color="error"
+      :timeout="5000"
+      top
+      right
     >
-      {{ error }}
-    </v-alert>
+      <span>{{ error }}</span>
+    </v-snackbar>
     <h1>Choisissez un motif de déplacement</h1>
     <p>
       Certifie que mon déplacement est lié au motif suivant (cocher la case)
@@ -136,13 +139,8 @@
       </v-radio>
     </v-radio-group>
     <v-row>
-      <v-btn class="mx-auto" :loading="is_loading" @click="generate">
+      <v-btn class="mx-auto mb-5" :loading="is_loading" @click="generate">
         Générer mon attestation
-      </v-btn>
-    </v-row>
-    <v-row>
-      <v-btn v-if="pdf_link" :href="pdf_link" target="_blank" download="toto">
-        Voir mon attestation
       </v-btn>
     </v-row>
   </v-container>
@@ -247,6 +245,7 @@ export default {
           this.is_loading = false
         } catch (error) {
           this.error = error
+          this.is_loading = false
           console.error(error)
         }
       }
