@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import CookieParser from 'cookieparser'
 import LocalStorage from 'local-storage'
 
@@ -23,11 +22,7 @@ export const getters = {
 
 export const mutations = {
   setUser (state, user) {
-    if (_.has(user, 'user')) {
-      state.user = user.user
-    } else {
-      state.user = user
-    }
+    state.user = user
     this.$cookies.set('user', state.user)
   },
   setColorMode (state, colorMode) {

@@ -42,7 +42,7 @@ export default {
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
-    Roboto,
+    'Open Sans',
     'Helvetica Neue',
     Arial,
     sans-serif;

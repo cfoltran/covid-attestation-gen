@@ -4,7 +4,7 @@
       v-if="error"
       type="error"
     >
-    {{ error }}
+      {{ error }}
     </v-alert>
     <h1>Choisissez un motif de déplacement</h1>
     <p>

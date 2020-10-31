@@ -2,9 +2,16 @@
   <div>
     <v-app>
       <v-main>
-        <!-- {{ $colorMode.value }} -->
         <nuxt />
       </v-main>
+      <v-footer
+        app
+        fixed
+      >
+        <v-btn icon href="https://github.com/cfoltran/covid-attestation-gen" target="_blank">
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
+      </v-footer>
     </v-app>
   </div>
 </template>
@@ -26,7 +33,7 @@ html {
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
-    Roboto,
+    'Open Sans',
     'Helvetica Neue',
     Arial,
     sans-serif;

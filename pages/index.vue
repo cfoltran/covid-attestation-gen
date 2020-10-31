@@ -3,8 +3,10 @@
     <v-row>
       <img class="mx-auto" src="../assets/logo.png" alt="logo" height="80px">
     </v-row>
-    <v-row>
+    <v-row class="mx-auto">
       <h2>Générez votre attestation une bonne fois pour toute</h2>
+    </v-row>
+    <v-row class="mx-auto">
       <p>
         Cococertif sauvegarde vos données personnelles dans le cache de votre ordinateurs,
         elles restent avec vous bien au chaud.
@@ -17,7 +19,11 @@
     <!-- if is not log -->
     <div v-else>
       <v-row>
-        <v-btn class="mx-auto" @click="deleteInformations" :loading="is_loading">
+        <v-btn
+          class="mx-auto"
+          :loading="is_loading"
+          @click="deleteInformations"
+        >
           Supprimer mes informations personnelles
         </v-btn>
       </v-row>
@@ -34,7 +40,6 @@ import FormGenerateCertificates from '~/components/forms/FormGenerateCertificate
 
 export default {
   name: 'Index',
-  middleware: 'auth',
   components: {
     FormUserInformations,
     FormGenerateCertificates
@@ -42,12 +47,6 @@ export default {
   data () {
     return {
       is_loading: false
-    }
-  },
-  nuxtI18n: {
-    paths: {
-      fr: '/',
-      en: '/'
     }
   },
   computed: {
@@ -69,7 +68,7 @@ export default {
   },
   head () {
     return {
-      title: this.$t('home')
+      title: 'Cococertif'
     }
   }
 }
@@ -88,7 +87,7 @@ export default {
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
-    Roboto,
+    'Open Sans',
     'Helvetica Neue',
     Arial,
     sans-serif;
@@ -111,13 +110,3 @@ export default {
   padding-top: 15px;
 }
 </style>
-<i18n>
-{
-  "fr": {
-    "home": "Cococertif"
-  },
-  "en": {
-    "home": "Home"
-  }
-}
-</i18n>

@@ -1,4 +1,3 @@
-// var session = require('express-session')
 import colors from 'vuetify/es5/util/colors'
 export default {
   /*
@@ -22,11 +21,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name:'google-site-verification', content: 'J4ZsRyYu2RLNP8Z1jPHbt7ciae42OXVDNUPTFrm8iSo' },
+      { hid: 'Générez votre attestation de sortie une bonne fois pour toute', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
       { href: "https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css", rel: "stylesheet"},
-      { href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons", rel: "stylesheet"},
+      { href: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Material+Icons", rel: "stylesheet"},
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
@@ -50,9 +50,7 @@ export default {
     { src: '~/plugins/vuex-persist.js', ssr: false },
     { src: '~/plugins/colorManager.js', ssr: false },
     { src: '~/plugins/vuetify.js', mode: 'client' },
-    { src: '~/plugins/axios.js', mode: 'client' },
     '~/plugins/vuelidate.js',
-    '~/plugins/event-bus.js'
   ],
 
   /*
@@ -66,48 +64,34 @@ export default {
   */
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify',
-    '@nuxtjs/moment'
+    '@nuxtjs/vuetify'
   ],
-  moment: {
-    locales: ['fr']
-  },
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // '@nuxtjs/moment',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    'nuxt-i18n',
     'cookie-universal-nuxt',
-    // '@nuxtjs/recaptcha',
     '@nuxtjs/dotenv',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap'
   ],
 
-  i18n: {
-    detectBrowserLanguage: false,
-    locales: [
-      {
-        code: 'en',
-        name: 'English'
-      },
-      {
-        code: 'es',
-        name: 'Español'
-      },
-      {
-        code: 'fr',
-        name: 'Français'
-      }
-    ],
-    defaultLocale: 'fr',
-    vueI18nLoader: true,
-    vueI18n: {
-      fallbackLocale: 'fr',
+  robots: [
+    {
+      UserAgent: '*'
     }
+  ],
+
+  sitemap: {
+    hostname: 'http://cococertif.com/',
+    gzip: true,
+    routes: [
+      '/'
+    ]
   },
   
   axios: {
