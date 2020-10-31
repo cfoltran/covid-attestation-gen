@@ -1,7 +1,6 @@
 <template>
   <section class="container">
     <div>
-      <Logo />
       <h1 class="title">
         {{ error.statusCode }}
       </h1>
