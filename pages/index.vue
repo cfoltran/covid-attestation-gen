@@ -52,7 +52,7 @@ export default {
         this.is_loading = true
         console.log(this.user)
         await this.$axios.delete(`deleteFolderUuid/${this.user.hash}`)
-        this.$store.commit('deleteStore')
+        this.$store.dispatch('logout')
         this.is_loading = false
       } catch (error) {
         console.error(error)

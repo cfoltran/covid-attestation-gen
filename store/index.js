@@ -4,8 +4,7 @@ import LocalStorage from 'local-storage'
 
 const getEmptyState = () => {
   return {
-    user: null,
-    token: null
+    user: null
   }
 }
 
