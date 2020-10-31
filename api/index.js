@@ -1,3 +1,4 @@
+import fs from 'fs'
 import express from 'express'
 import helmet from 'helmet'
 import cors from 'cors'
@@ -22,7 +23,6 @@ app.use(helmet())
 module.exports = app
 
 const deletePdfFile = (req, res, next) => {
-  const fs = require('fs')
   const { hash } = req.body
   const dir = `./my-downloads/${hash}`
   fs.mkdirSync(dir, { recursive: true })
@@ -34,6 +34,7 @@ const deletePdfFile = (req, res, next) => {
   next()
 }
 
+app.delete('/deleteFolderUuid/:hash', (req, res) => deleteFolderUuid(req, res))
 app.post('/certificate', (deletePdfFile), async (req, res) => await certificate(req, res))
 
 if (process.env.NODE_ENV === 'prod') {
@@ -52,6 +53,21 @@ if (require.main === module) {
   app.listen(port, () => {
     console.log(`API server listening on port ${port}`)
   })
+}
+const deleteFolderUuid = (req, res) => {
+  try {
+    const {
+      hash
+    } = req.params
+    const dir = `./my-downloads/${hash}`
+    console.log(hash)
+    fs.rmdirSync(dir, { recursive: true }, (err) => { console.error(err) })
+    res.status(200).json({ success: true })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error })
+    return null
+  }
 }
 
 const certificate = async (req, res) => {
@@ -73,7 +89,6 @@ const certificate = async (req, res) => {
       args: ['--lang=fr-FR,fr']
     })
     const dir = `./my-downloads/${hash}`
-    const fs = require('fs')
     const page = await browser.newPage()
 
     await page.setViewport({ width: 1280, height: 800 })
@@ -100,7 +115,7 @@ const certificate = async (req, res) => {
     res.status(200).json({ link: pdfLink, fileData })
   } catch (error) {
     console.error(error)
-    res.status(200).json({ error })
+    res.status(500).json({ error })
     return null
   }
 }

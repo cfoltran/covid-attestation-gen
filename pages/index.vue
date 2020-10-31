@@ -10,7 +10,7 @@
     <!-- if is not log -->
     <div v-else>
       <v-row>
-        <v-btn class="mx-auto" @click="deleteInformations">
+        <v-btn class="mx-auto" @click="deleteInformations" :loading="is_loading">
           Supprimer mes informations personnelles
         </v-btn>
       </v-row>
@@ -32,6 +32,11 @@ export default {
     FormUserInformations,
     FormGenerateCertificates
   },
+  data () {
+    return {
+      is_loading: false
+    }
+  },
   nuxtI18n: {
     paths: {
       fr: '/',
@@ -39,11 +44,20 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['isAuthenticated'])
+    ...mapGetters(['isAuthenticated', 'user'])
   },
   methods: {
-    deleteInformations () {
-      this.$store.commit('deleteStore')
+    async deleteInformations () {
+      try {
+        this.is_loading = true
+        console.log(this.user)
+        await this.$axios.delete(`deleteFolderUuid/${this.user.hash}`)
+        this.$store.commit('deleteStore')
+        this.is_loading = false
+      } catch (error) {
+        console.error(error)
+        this.is_loading = false
+      }
     }
   },
   head () {
