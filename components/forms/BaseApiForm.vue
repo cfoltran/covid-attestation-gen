@@ -106,8 +106,6 @@ export default {
       }
       this.is_submiting = true
       event.preventDefault()
-      this.$store.commit('alerts/ALERT_CLOSE')
-      this.$store.commit('alerts/ALERT_RESET_VIOLATIONS_ERROR')
 
       if (this.noValidation === false) {
         this.$emit('validate')
@@ -160,7 +158,6 @@ export default {
     },
     handleError (error) {
       console.error(error)
-      this.$alerts.error(error)
       this.$emit('error', error)
       this.isSaving = false
       this.$bus.$emit('baseApiDoneSaving')

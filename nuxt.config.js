@@ -48,7 +48,6 @@ export default {
   */
   plugins: [
     { src: '~/plugins/vuex-persist.js', ssr: false },
-    { src: '~/plugins/alerts.js', ssr: false },
     { src: '~/plugins/colorManager.js', ssr: false },
     { src: '~/plugins/vuetify.js', mode: 'client' },
     { src: '~/plugins/axios.js', mode: 'client' },

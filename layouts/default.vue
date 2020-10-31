@@ -5,28 +5,16 @@
         <!-- {{ $colorMode.value }} -->
         <nuxt />
       </v-main>
-      <v-snackbar
-        :value="alerts.is_open"
-        :color="alerts.color"
-        :timeout="5000"
-        top
-        right
-      >
-        <span>{{ alerts.message }}</span>
-      </v-snackbar>
     </v-app>
   </div>
 </template>
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import colorModeMixin from '~/mixins/colorMode'
 
 export default {
   mixins: [colorModeMixin],
   computed: {
-    ...mapState({
-      alerts: state => state.alerts
-    }),
     ...mapGetters(['token', 'isAuthenticated'])
   }
 }

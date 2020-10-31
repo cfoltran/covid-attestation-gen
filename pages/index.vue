@@ -1,16 +1,35 @@
 <template>
   <v-container>
     <v-row>
-      <p>Hello world</p>
+      <h1>Remplissez votre formulaire pour generer des attestations qu'une seule fois !</h1>
     </v-row>
+    <!-- if user is log -->
+    <v-row v-if="!isAuthenticated">
+      <form-user-informations />
+    </v-row>
+    <!-- if is not log -->
+    <div v-else>
+      <v-row>
+        <v-btn class="mx-auto" @click="deleteInformations" > Supprimer mes informations personnelles </v-btn>
+      </v-row>
+      <v-row>
+        <form-generate-certificates />
+      </v-row>
+    </div>
   </v-container>
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import FormUserInformations from '~/components/forms/FormUserInformations'
+import FormGenerateCertificates from '~/components/forms/FormGenerateCertificates'
 
 export default {
   name: 'Index',
   middleware: 'auth',
+  components: {
+    FormUserInformations,
+    FormGenerateCertificates
+  },
   nuxtI18n: {
     paths: {
       fr: '/',
@@ -19,6 +38,11 @@ export default {
   },
   computed: {
     ...mapGetters(['isAuthenticated'])
+  },
+  methods: {
+    deleteInformations () {
+      this.$store.commit('deleteStore')
+    }
   },
   head () {
     return {
