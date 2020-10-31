@@ -16,8 +16,7 @@ export const certificate = async (req, res) => {
       hash
     } = req.body
     const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--lang=fr-FR,fr']
+      headless: true
     })
     const dir = `./my-downloads/${hash}`
     const page = await browser.newPage()
@@ -43,6 +42,7 @@ export const certificate = async (req, res) => {
     await page.waitFor(1000)
     const fileNames = fs.readdirSync(dir)
     const fileData = fs.readFileSync(`${dir}/${fileNames[0]}`, 'base64')
+    browser.close()
     res.status(200).json({ link: pdfLink, fileData })
   } catch (error) {
     console.error(error)

@@ -189,6 +189,8 @@ export default {
   computed: {
     ...mapGetters(['user']),
     payload () {
+      const now = new Date().toLocaleString('en-US').split(',')[1].trim()
+      const parsedDate = `${now.split(':')[0]}${now.split(':')[1]}${now.split(' ')[1]}`
       return {
         hash: this.user.hash,
         firstname: this.user.first_name,
@@ -198,7 +200,7 @@ export default {
         address: this.user.address,
         city: this.user.city,
         zipcode: this.user.zip,
-        hour: `${(this.hour < 10 ? '0' : '') + this.hour}${(this.minutes < 10 ? '0' : '') + this.minutes}`,
+        hour: parsedDate,
         reason: this.radio_check[this.reason]
       }
     },
