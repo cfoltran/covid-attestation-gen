@@ -1,7 +1,14 @@
 <template>
   <v-container>
     <v-row>
-      <h1>Remplissez votre formulaire pour generer des attestations qu'une seule fois !</h1>
+      <img class="mx-auto" src="../assets/logo.png" alt="logo" height="80px">
+    </v-row>
+    <v-row>
+      <h2>Générez votre attestation une bonne fois pour toute</h2>
+      <p>
+        Cococertif sauvegarde vos données personnelles dans le cache de votre ordinateurs,
+        elles restent avec vous bien au chaud.
+      </p>
     </v-row>
     <!-- if user is log -->
     <v-row v-if="!isAuthenticated">
@@ -93,7 +100,7 @@ export default {
 <i18n>
 {
   "fr": {
-    "home": "Accueil"
+    "home": "Cococertif"
   },
   "en": {
     "home": "Home"
