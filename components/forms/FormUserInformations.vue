@@ -145,7 +145,7 @@ export default {
         const user = {
           first_name: this.first_name,
           last_name: this.last_name,
-          birthdate: this.birthdate,
+          birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR'),
           birthplace: this.birthplace,
           address: this.address,
           city: this.city,

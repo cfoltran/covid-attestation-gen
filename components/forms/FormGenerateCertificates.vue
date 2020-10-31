@@ -1,5 +1,11 @@
 <template>
   <v-container class="mt-10">
+    <v-alert
+      v-if="error"
+      type="error"
+    >
+    {{ error }}
+    </v-alert>
     <h1>Choisissez un motif de déplacement</h1>
     <p>
       Certifie que mon déplacement est lié au motif suivant (cocher la case)
@@ -130,8 +136,13 @@
       </v-radio>
     </v-radio-group>
     <v-row>
-      <v-btn class="mx-auto" @click="generate">
+      <v-btn class="mx-auto" :loading="is_loading" @click="generate">
         Générer mon attestation
+      </v-btn>
+    </v-row>
+    <v-row>
+      <v-btn v-if="pdf_link" :href="pdf_link" target="_blank" download="toto">
+        Voir mon attestation
       </v-btn>
     </v-row>
   </v-container>
@@ -152,6 +163,11 @@ export default {
   },
   data () {
     return {
+      hour: new Date().getHours(),
+      minutes: new Date().getMinutes(),
+      pdf_link: '',
+      is_loading: false,
+      error: null,
       reason: null,
       hint_1: false,
       hint_2: false,
@@ -180,7 +196,7 @@ export default {
         address: this.user.address,
         city: this.user.city,
         zipcode: this.user.zip,
-        hour: new Date(),
+        hour: `${(this.hour < 10 ? '0' : '') + this.hour}${(this.minutes < 10 ? '0' : '') + this.minutes}`,
         reason: this.radio_check[this.reason]
       }
     },
@@ -192,11 +208,32 @@ export default {
     }
   },
   methods: {
-    generate () {
+    downloadFile (content, filename) {
+      const a = document.createElement('a')
+      a.setAttribute('href', `data:application/pdf;charset=UTF-8,${encodeURIComponent(content)}`)
+      a.download = filename
+      a.style.display = 'none'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+    },
+    async generate () {
       this.validate()
       if (this.valid) {
-        console.log(this.payload)
-        // todo axios request with this.payloads
+        try {
+          this.is_loading = true
+          const link = await this.$axios.post('/certificate', this.payload)
+          const blob = new Blob([link.data.link], { type: 'application/pdf' })
+          if (blob) {
+            this.downloadFile(blob, 'toto')
+          }
+          console.log(link)
+          this.pdf_link = link.data.link
+          this.is_loading = false
+        } catch (error) {
+          this.error = error
+          console.error(error)
+        }
       }
     }
   }
