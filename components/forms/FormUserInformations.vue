@@ -39,6 +39,7 @@
   </v-container>
 </template>
 <script>
+import { v1 as uuidv1 } from 'uuid'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import BaseApiFormValidation from '~/mixins/BaseApiFormValidation'
@@ -143,6 +144,7 @@ export default {
       this.validate()
       if (this.valid) {
         const user = {
+          hash: uuidv1(),
           first_name: this.first_name,
           last_name: this.last_name,
           birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR'),

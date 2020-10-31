@@ -152,6 +152,7 @@ import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 import BaseApiFormValidation from '~/mixins/BaseApiFormValidation'
+
 /* eslint-disable no-multi-str */
 export default {
   name: 'FormGenerateCertificates',
@@ -189,6 +190,7 @@ export default {
     ...mapGetters(['user']),
     payload () {
       return {
+        hash: this.user.hash,
         firstname: this.user.first_name,
         lastname: this.user.last_name,
         birthdate: this.user.birthdate,
@@ -208,14 +210,24 @@ export default {
     }
   },
   methods: {
-    downloadFile (content, filename) {
-      const a = document.createElement('a')
-      a.setAttribute('href', `data:application/pdf;charset=UTF-8,${encodeURIComponent(content)}`)
-      a.download = filename
-      a.style.display = 'none'
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
+    b64toBlob (b64Data, contentType = '', sliceSize = 512) {
+      const byteCharacters = atob(b64Data)
+      const byteArrays = []
+
+      for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize)
+
+        const byteNumbers = new Array(slice.length)
+        for (let i = 0; i < slice.length; i++) {
+          byteNumbers[i] = slice.charCodeAt(i)
+        }
+
+        const byteArray = new Uint8Array(byteNumbers)
+        byteArrays.push(byteArray)
+      }
+
+      const blob = new Blob(byteArrays, { type: contentType })
+      return blob
     },
     async generate () {
       this.validate()
@@ -223,12 +235,13 @@ export default {
         try {
           this.is_loading = true
           const link = await this.$axios.post('/certificate', this.payload)
-          const blob = new Blob([link.data.link], { type: 'application/pdf' })
-          if (blob) {
-            this.downloadFile(blob, 'toto')
-          }
           console.log(link)
-          this.pdf_link = link.data.link
+          const blob = this.b64toBlob(link.data.fileData, 'application/pdf')
+          if (blob) {
+            const fileURL = window.URL.createObjectURL(blob)
+            window.open(fileURL)
+          }
+          this.pdf_link = link.fileData
           this.is_loading = false
         } catch (error) {
           this.error = error
