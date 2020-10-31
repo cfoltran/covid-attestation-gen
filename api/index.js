@@ -14,9 +14,6 @@ app.use(bodyParser.json({ limit: '10mb', extended: false }))
 app.use(cors())
 app.use(helmet())
 
-// Import API Routes
-// app.use(apiRouter)
-
 // Export express app
 module.exports = app
 
