@@ -25,8 +25,6 @@ export default {
       { hid: 'Générez votre attestation de sortie une bonne fois pour toute', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { href: "https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"},
-      { href: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700",rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"},
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
@@ -58,6 +56,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-webfontloader',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',
@@ -85,9 +84,16 @@ export default {
     baseURL: process.env.NUXT_BASE_API_URL || 'http://localhost:3000/api'
   },
 
+  webfontloader: {
+    google: {
+      families: ['Open+Sans:300,400,500,700']
+    }
+  },
+
   vuetify: {
     treeShake: true,
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: false,
     theme: {
       dark: false,
       themes: {

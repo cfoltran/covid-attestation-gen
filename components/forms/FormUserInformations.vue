@@ -15,7 +15,6 @@
           v-model="birthdate"
           :error-messages="dateBornError"
           label="Date de naissance"
-          prepend-icon="event"
           readonly
           v-on="on"
         />

@@ -1,5 +1,6 @@
 {
   "name": "cococertif",
+  "license": "MIT",
   "version": "1.0.0",
   "description": "Générez votre attestation de sortie une bonne fois pour toute",
   "author": "owalid <othmane.el.ayadi@gmail.com>",
@@ -30,6 +31,7 @@
     "cors": "2.8.5",
     "helmet": "4.1.0",
     "nuxt": "latest",
+    "nuxt-webfontloader": "^1.1.0",
     "passport": "0.4.1",
     "puppeteer": "^5.4.1",
     "redirect-ssl": "^2.0.0",
