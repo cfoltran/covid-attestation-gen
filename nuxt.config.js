@@ -25,21 +25,9 @@ export default {
       { hid: 'Générez votre attestation de sortie une bonne fois pour toute', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { href: "https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css", rel: "stylesheet"},
-      { href: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Material+Icons", rel: "stylesheet"},
+      { href: "https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"},
+      { href: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700",rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"},
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
-  },
-
-  /*
-  ** Global CSS
-  */
-  css: [
-  ],
-
-  styleResources: {
-    scss: [
-      '@/assets/colors.scss',
     ]
   },
   /*
@@ -49,8 +37,7 @@ export default {
   plugins: [
     { src: '~/plugins/vuex-persist.js', ssr: false },
     { src: '~/plugins/colorManager.js', ssr: false },
-    { src: '~/plugins/vuetify.js', mode: 'client' },
-    '~/plugins/vuelidate.js',
+    { src: '~/plugins/vuetify.js', mode: 'client' }
   ],
 
   /*
@@ -138,6 +125,8 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    transpile: [/^vuetify/],
+    extractCSS: true,
     extend(config, ctx) {
       
     }

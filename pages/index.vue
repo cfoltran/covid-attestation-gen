@@ -35,14 +35,12 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import FormUserInformations from '~/components/forms/FormUserInformations'
-import FormGenerateCertificates from '~/components/forms/FormGenerateCertificates'
 
 export default {
   name: 'Index',
   components: {
-    FormUserInformations,
-    FormGenerateCertificates
+    FormUserInformations: () => import('~/components/forms/FormUserInformations'),
+    FormGenerateCertificates: () => import('~/components/forms/FormGenerateCertificates')
   },
   data () {
     return {

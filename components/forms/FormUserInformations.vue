@@ -43,12 +43,11 @@ import { v1 as uuidv1 } from 'uuid'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import BaseApiFormValidation from '~/mixins/BaseApiFormValidation'
-import InputText from '~/components/inputs/InputText'
 
 export default {
   name: 'FormUserInformations',
   components: {
-    InputText
+    InputText: () => import('~/components/inputs/InputText')
   },
   mixins: [validationMixin, BaseApiFormValidation],
   validations () {

@@ -1,5 +1,4 @@
 import CookieParser from 'cookieparser'
-import LocalStorage from 'local-storage'
 
 const getEmptyState = () => {
   return {
@@ -8,7 +7,7 @@ const getEmptyState = () => {
 }
 
 export const state = () => ({
-  user: LocalStorage.get('user')
+  user: null
 })
 
 export const getters = {
