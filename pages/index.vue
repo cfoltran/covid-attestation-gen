@@ -24,7 +24,7 @@
           :loading="is_loading"
           @click="deleteInformations"
         >
-          Supprimer mes informations personnelles
+          Supprimer mes infos
         </v-btn>
       </v-row>
       <v-row>

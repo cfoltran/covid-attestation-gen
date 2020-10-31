@@ -80,7 +80,7 @@
           <v-container>
             <v-row>
               Déplacements pour motif familial impérieux, pour l'assistance
-              aux personnes vulnérables et précaires ou la garde d\'enfants
+              aux personnes vulnérables et précaires ou la garde d'enfants
             </v-row>
           </v-container>
         </template>
@@ -120,7 +120,7 @@
         <template v-slot:label>
           <v-container>
             <v-row>
-              Participation à des missions d\'intérêt général sur demande de l\'autorité administrative
+              Participation à des missions d'intérêt général sur demande de l'autorité administrative
             </v-row>
           </v-container>
         </template>
