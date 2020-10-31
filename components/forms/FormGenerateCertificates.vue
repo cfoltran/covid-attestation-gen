@@ -13,8 +13,11 @@
       lors de leurs déplacements hors de leur domicile, d'un document leur permettant de justifier
       que le déplacement considéré entre dans le champ de l'une de ces exceptions.
     </p>
-    {{user}}
-    <v-radio-group class="mt-10" v-model="reason" :error-messages="reasonErrors">
+    <v-radio-group
+      v-model="reason"
+      class="mt-10"
+      :error-messages="reasonErrors"
+    >
       <v-radio>
         <template v-slot:label>
           <v-container>

@@ -73,11 +73,6 @@ export default {
       city: { required }
     }
   },
-  watch: {
-    menu_date (val) {
-      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
-    }
-  },
   data () {
     return {
       dom_tom_arr: ['971', '972', '973', '974', '975', '976'],
@@ -133,6 +128,11 @@ export default {
       if (!this.$v.zip.$dirty) { return errors }
       !this.$v.zip.goodZip && errors.push('Le code postal n\'est pas valide')
       return errors
+    }
+  },
+  watch: {
+    menu_date (val) {
+      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
     }
   },
   methods: {

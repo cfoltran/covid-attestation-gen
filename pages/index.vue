@@ -10,7 +10,9 @@
     <!-- if is not log -->
     <div v-else>
       <v-row>
-        <v-btn class="mx-auto" @click="deleteInformations" > Supprimer mes informations personnelles </v-btn>
+        <v-btn class="mx-auto" @click="deleteInformations">
+          Supprimer mes informations personnelles
+        </v-btn>
       </v-row>
       <v-row>
         <form-generate-certificates />
