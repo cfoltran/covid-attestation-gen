@@ -20,9 +20,6 @@ app.use(helmet())
 // Export express app
 module.exports = app
 
-app.delete('/deleteFolderUuid/:hash', (req, res) => deleteFolderUuid(req, res))
-app.post('/certificate', (deleteLastFile), async (req, res) => await certificate(req, res))
-
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     if (req.header('x-forwarded-proto') !== 'https') {
@@ -32,6 +29,9 @@ if (process.env.NODE_ENV === 'production') {
     }
   })
 }
+
+app.delete('/deleteFolderUuid/:hash', (req, res) => deleteFolderUuid(req, res))
+app.post('/certificate', (deleteLastFile), async (req, res) => await certificate(req, res))
 
 // Start standalone server if directly running
 if (require.main === module) {
