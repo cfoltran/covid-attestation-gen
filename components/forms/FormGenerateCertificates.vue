@@ -238,8 +238,14 @@ export default {
           console.log(link)
           const blob = this.b64toBlob(link.data.fileData, 'application/pdf')
           if (blob) {
-            const fileURL = window.URL.createObjectURL(blob)
-            window.open(fileURL)
+            const a = document.createElement('a')
+            a.href = window.URL.createObjectURL(blob)
+            a.style.display = 'none'
+            a.target = '_blank'
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+            // window.open(fileURL)
           }
           this.pdf_link = link.fileData
           this.is_loading = false

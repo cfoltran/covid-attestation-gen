@@ -56,7 +56,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'nuxt-webfontloader',
+    // 'nuxt-webfontloader',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',
@@ -86,14 +86,23 @@ export default {
 
   webfontloader: {
     google: {
-      families: ['Open+Sans:300,400,500,700']
+      families: [
+        'Open+Sans:300,400,500,700',
+        'Material+Icons'
+      ],
+      urls: [
+        'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Material+Icons&display=swap'
+      ]
     }
   },
 
   vuetify: {
     treeShake: true,
     customVariables: ['~/assets/variables.scss'],
-    defaultAssets: false,
+    defaultAssets: {
+      font: false,
+      icons: 'mdi',
+    },
     theme: {
       dark: false,
       themes: {
