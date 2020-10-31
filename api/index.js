@@ -23,7 +23,7 @@ module.exports = app
 app.delete('/deleteFolderUuid/:hash', (req, res) => deleteFolderUuid(req, res))
 app.post('/certificate', (deleteLastFile), async (req, res) => await certificate(req, res))
 
-if (process.env.NODE_ENV === 'prod') {
+if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     if (req.header('x-forwarded-proto') !== 'https') {
       res.redirect(`https://www.${req.header('host')}${req.url}`)
