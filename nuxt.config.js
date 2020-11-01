@@ -42,6 +42,7 @@ export default {
   ],
   env: {
     NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
+    maxAge: 2147483647
   },
 
   /*

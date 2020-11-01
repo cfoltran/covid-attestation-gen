@@ -39,7 +39,7 @@ export const mutations = {
   },
   setUser (state, user) {
     state.user = Object.assign({}, user)
-    this.$cookies.set('user', Object.assign({}, user))
+    this.$cookies.set('user', Object.assign({}, user), { maxAge: process.env.maxAge })
   },
   setColorMode (state, colorMode) {
     state.user.color_mode = colorMode
