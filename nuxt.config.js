@@ -70,7 +70,7 @@ export default {
     '@nuxtjs/sitemap'
   ],
   purgeCSS: {
-    enabled: true,
+    // enabled: true,
     mode: 'webpack',
     paths: [
       'components/**/*.vue',
@@ -148,7 +148,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    'redirect-ssl', //todo comment this line in dev
+    (process.env.NODE_ENV === 'production') ? 'redirect-ssl' : '', //todo comment this line in dev
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],

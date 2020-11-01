@@ -1,5 +1,5 @@
 import CookieParser from 'cookieparser'
-import CryptoJS from 'crypto-js'
+import StringCrypto from 'string-crypto'
 import ls from 'local-storage'
 
 const getEmptyState = () => {
@@ -21,8 +21,9 @@ export const getters = {
   },
   user (state) {
     if (!state.user) { return }
-    const dataBytes = CryptoJS.AES.decrypt(state.user.token, process.env.NUXT_CRYPTO_SECRET)
-    const decryptedData = JSON.parse(dataBytes.toString(CryptoJS.enc.Utf8))
+    const { decryptString } = new StringCrypto()
+    const tokenData = decryptString(state.user.token, process.env.NUXT_CRYPTO_SECRET)
+    const decryptedData = JSON.parse(tokenData)
     const user = {
       ...decryptedData,
       hash: state.user.hash,
