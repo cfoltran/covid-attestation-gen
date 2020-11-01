@@ -237,7 +237,7 @@ export default {
         firstname: this.user.first_name,
         lastname: this.user.last_name,
         birthdate: this.user.birthdate,
-        birthplace: this.user.birthdate,
+        birthplace: this.user.birthplace,
         address: this.user.address,
         city: this.user.city,
         zipcode: this.user.zip,
