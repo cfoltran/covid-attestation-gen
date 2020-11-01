@@ -53,7 +53,7 @@
   </v-container>
 </template>
 <script>
-import CryptoJS from 'crypto-js'
+// import CryptoJS from 'crypto-js'
 import { v1 as uuidv1 } from 'uuid'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
@@ -167,18 +167,22 @@ export default {
         this.error_sign = ''
         const user = {
           hash: uuidv1(),
-          token: CryptoJS.AES.encrypt(JSON.stringify(
-            {
-              first_name: this.first_name,
-              last_name: this.last_name,
-              birthplace: this.birthplace,
-              address: this.address,
-              city: this.city,
-              zip: this.zip
-            },
-            process.env.NUXT_JWT_SECRET,
-            {}
-          ), process.env.NUXT_CRYPTO_SECRET).toString(),
+          first_name: this.first_name,
+          last_name: this.last_name,
+          birthplace: this.birthplace,
+          address: this.address,
+          city: this.city,
+          zip: this.zip,
+          // token: CryptoJS.AES.encrypt(JSON.stringify(
+          //   {
+          //     first_name: this.first_name,
+          //     last_name: this.last_name,
+          //     birthplace: this.birthplace,
+          //     address: this.address,
+          //     city: this.city,
+          //     zip: this.zip
+          //   }
+          // ), process.env.NUXT_CRYPTO_SECRET).toString(),
           birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR')
         }
         this.$store.commit('setSignature', data)

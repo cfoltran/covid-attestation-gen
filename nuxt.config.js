@@ -22,7 +22,9 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name:'google-site-verification', content: 'J4ZsRyYu2RLNP8Z1jPHbt7ciae42OXVDNUPTFrm8iSo' },
-      { hid: 'Générez votre attestation de sortie une bonne fois pour toute', name: 'description', content: process.env.npm_package_description || '' }
+      { name:'robots', content: 'index, follow' },
+      { name: 'keywords', content: 'attestation,  attestation covid, attestation sortie, attestation sortie covid'},
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -145,7 +147,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    'redirect-ssl',
+    // 'redirect-ssl', //todo comment this line in dev
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],
