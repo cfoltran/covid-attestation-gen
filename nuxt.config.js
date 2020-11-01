@@ -56,8 +56,7 @@ export default {
     { src: '~/plugins/colorManager.js', ssr: false },
     { src: '~/plugins/vuex-persist.js', mode: 'client' },
     { src: '~/plugins/vuetify.js', mode: 'client' },
-    { src: '~/plugins/vueSignaturePad.js', mode: 'client' },
-    { src: '~/plugins/ga.js', mode: 'client' }
+    { src: '~/plugins/vueSignaturePad.js', mode: 'client' }
   ],
   env: {
     NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
