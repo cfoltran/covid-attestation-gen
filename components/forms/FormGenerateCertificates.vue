@@ -270,6 +270,7 @@ export default {
           this.is_loading = true
           const link = await this.$axios.post('/certificate', this.payload)
           // const text = await blob.text()
+          console.log(this.signature)
           const pdfDoc = await PDFDocument.load(link.data.fileData)
           const pages = pdfDoc.getPages()
           const firstPage = pages[0]

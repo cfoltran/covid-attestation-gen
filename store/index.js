@@ -36,7 +36,7 @@ export const getters = {
 
 export const mutations = {
   setSignature (state, signature) {
-    ls.set('signature', JSON.stringify(signature))
+    ls.set('signature', signature)
   },
   setUser (state, user) {
     state.user = user
