@@ -56,10 +56,12 @@ export default {
     { src: '~/plugins/colorManager.js', ssr: false },
     { src: '~/plugins/vuex-persist.js', mode: 'client' },
     { src: '~/plugins/vuetify.js', mode: 'client' },
-    { src: '~/plugins/vueSignaturePad.js', mode: 'client' }
+    { src: '~/plugins/vueSignaturePad.js', mode: 'client' },
+    { src: '~/plugins/ga.js', mode: 'client' }
   ],
   env: {
     NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
+    NUXT_GA_ID: process.env.NUXT_GA_ID,
     maxAge: 2147483647
   },
 
@@ -74,7 +76,8 @@ export default {
   */
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
 
   /*
@@ -115,6 +118,10 @@ export default {
       UserAgent: '*'
     }
   ],
+
+  googleAnalytics: {
+    id: process.env.NUXT_GA_ID
+  },
 
   sitemap: {
     hostname: process.env.NUXT_BASE_FRONT_URL,
@@ -170,7 +177,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    'redirect-ssl', //todo comment this line in dev mode
+    // 'redirect-ssl', //todo comment this line in dev mode
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],
