@@ -165,17 +165,17 @@ export default {
       if (isEmpty) { this.error_sign = 'Veuillez rensigner une signature' }
       if (this.valid && !isEmpty) {
         this.error_sign = ''
-        const userData = JSON.stringify(
-          {
-            first_name: this.first_name,
-            last_name: this.last_name,
-            birthplace: this.birthplace,
-            address: this.address,
-            city: this.city,
-            zip: this.zip
-          }
-        )
-        const token = CryptoJS.AES.encrypt(userData, process.env.NUXT_CRYPTO_SECRET).toString()
+        // const userData = JSON.stringify(
+        //   {
+        //     first_name: this.first_name,
+        //     last_name: this.last_name,
+        //     birthplace: this.birthplace,
+        //     address: this.address,
+        //     city: this.city,
+        //     zip: this.zip
+        //   }
+        // )
+        const token = CryptoJS.AES.encrypt('userData', process.env.NUXT_CRYPTO_SECRET).toString()
         const user = {
           hash: uuidv1(),
           first_name: this.first_name,

@@ -70,6 +70,7 @@ export default {
     '@nuxtjs/sitemap'
   ],
   purgeCSS: {
+    enabled: true,
     mode: 'webpack',
     paths: [
       'components/**/*.vue',
