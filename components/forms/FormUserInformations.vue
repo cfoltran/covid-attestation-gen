@@ -30,21 +30,24 @@
     <input-text v-model="address" label="Adresse" :error-messages="addressError" />
     <input-text v-model="city" label="Ville" :error-messages="cityError" />
     <input-text v-model="zip" label="Code postal" :error-messages="zipError" />
-    <v-row class="mt-10">
-      <p class="mx-auto">
-        Signature
-      </p>
-    </v-row>
-    <v-row>
-      <client-only>
-        <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="150px" height="100px" :options="option" />
-      </client-only>
-    </v-row>
-    <v-row>
-      <p class="mx-auto caption red--text text--darken-3">
-        {{ error_sign }}
-      </p>
-    </v-row>
+    <v-switch v-model="want_sign" label="Enregistrer sa signature ?" />
+    <div v-if="want_sign">
+      <v-row class="mt-10">
+        <p class="mx-auto">
+          Signature
+        </p>
+      </v-row>
+      <v-row>
+        <client-only>
+          <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="150px" height="100px" :options="option" />
+        </client-only>
+      </v-row>
+      <v-row>
+        <p class="mx-auto caption red--text text--darken-3">
+          {{ error_sign }}
+        </p>
+      </v-row>
+    </div>
     <v-row class="mt-10">
       <v-btn class="mx-auto" @click="save">
         Enregistrer
@@ -92,6 +95,7 @@ export default {
   },
   data () {
     return {
+      want_sign: false,
       NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
       error_sign: '',
       option: {
@@ -164,9 +168,15 @@ export default {
     },
     save () {
       this.validate()
-      const { isEmpty, data } = this.$refs.signaturePad.saveSignature()
-      if (isEmpty) { this.error_sign = 'Veuillez rensigner une signature' }
-      if (this.valid && !isEmpty) {
+      let isEmpty = true
+      let data = null
+      if (this.want_sign) {
+        const signaturePad = this.$refs.signaturePad.saveSignature()
+        isEmpty = signaturePad.isEmpty
+        data = signaturePad.data
+        if (isEmpty) { this.error_sign = 'Veuillez rensigner une signature ou decocher la case \'Enregistrer sa signature ?\'' }
+      }
+      if (this.valid && ((this.want_sign && !isEmpty) || (!this.want_sign && isEmpty))) {
         this.error_sign = ''
         const userData = JSON.stringify(
           {
@@ -185,7 +195,9 @@ export default {
           birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR'),
           token
         }
-        this.$store.commit('setSignature', data)
+        if (this.want_sign) {
+          this.$store.commit('setSignature', data)
+        }
         this.$store.commit('setUser', user)
       }
     }

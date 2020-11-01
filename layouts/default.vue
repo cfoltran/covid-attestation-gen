@@ -30,11 +30,6 @@ export default {
   },
   computed: {
     ...mapGetters(['user', 'isAuthenticated', 'signature'])
-  },
-  async mounted () {
-    if (!this.signature && this.user) {
-      await this.$store.dispatch('logout')
-    }
   }
 }
 </script>

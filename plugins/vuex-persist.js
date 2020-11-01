@@ -2,9 +2,6 @@ import VuexPersistence from 'vuex-persist'
 
 export default ({ store }) => {
   new VuexPersistence({
-    key: 'covid',
-    modules: [
-      'auth'
-    ]
+    key: 'covid'
   }).plugin(store)
 }

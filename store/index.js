@@ -1,10 +1,11 @@
 import CookieParser from 'cookieparser'
 import StringCrypto from 'string-crypto'
-import ls from 'local-storage'
+// import ls from 'local-storage'
 
 const getEmptyState = () => {
   return {
-    user: null
+    user: null,
+    signature: null
   }
 }
 
@@ -17,7 +18,13 @@ export const getters = {
     return !!(state.user && Object.keys(state.user).length > 0)
   },
   signature (state) {
-    return ls.get('signature')
+    if (!process.server) {
+      const signatureStored = localStorage.getItem('signature')
+      if (signatureStored) {
+        state.signature = signatureStored
+      }
+    }
+    return state.signature
   },
   user (state) {
     if (!state.user) { return }
@@ -27,7 +34,6 @@ export const getters = {
     const user = {
       ...decryptedData,
       hash: state.user.hash,
-      signature: state.user.signature,
       birthdate: state.user.birthdate
     }
     return user
@@ -36,11 +42,14 @@ export const getters = {
 
 export const mutations = {
   setSignature (state, signature) {
-    ls.set('signature', signature)
+    state.signature = signature
+    if (!process.server) {
+      localStorage.setItem('signature', signature)
+    }
   },
   setUser (state, user) {
-    state.user = user
-    this.$cookies.set('user', state.user)
+    state.user = Object.assign({}, user)
+    this.$cookies.set('user', Object.assign({}, user))
   },
   setColorMode (state, colorMode) {
     state.user.color_mode = colorMode
@@ -68,8 +77,10 @@ export const actions = {
     if (state.user) {
       await this.$axios.delete(`deleteFolderUuid/${state.user.hash}`)
     }
-    this.$cookies.removeAll()
-    ls.remove('signature')
+    this.$cookies.remove('user')
+    if (!process.server) {
+      localStorage.removeItem('signature')
+    }
     commit('deleteStore')
   }
 }

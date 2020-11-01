@@ -269,21 +269,21 @@ export default {
           this.changeDotLoading()
           this.is_loading = true
           const link = await this.$axios.post('/certificate', this.payload)
-          // const text = await blob.text()
-          console.log(this.signature)
-          const pdfDoc = await PDFDocument.load(link.data.fileData)
-          const pages = pdfDoc.getPages()
-          const firstPage = pages[0]
-          const jpgImage = await pdfDoc.embedPng(this.signature)
-          const jpgDims = jpgImage.scale(0.15)
-          firstPage.drawImage(jpgImage, {
-            x: 140,
-            y: 105,
-            width: jpgDims.width,
-            height: jpgDims.height
-          })
-          const pdfBytes = await pdfDoc.save()
-          const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' })
+          let pdfDoc = await PDFDocument.load(link.data.fileData)
+          if (this.signature) {
+            const pages = pdfDoc.getPages()
+            const firstPage = pages[0]
+            const pngImage = await pdfDoc.embedPng(this.signature)
+            const pngDims = pngImage.scale(0.15)
+            firstPage.drawImage(pngImage, {
+              x: 140,
+              y: 105,
+              width: pngDims.width,
+              height: pngDims.height
+            })
+          }
+          let pdfBytes = await pdfDoc.save()
+          let pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' })
           if (pdfBlob) {
             const userAgent = window.navigator.userAgent
             if (window.navigator.msSaveOrOpenBlob) { // IE 11+
@@ -304,6 +304,9 @@ export default {
               window.open(fileURL)
             }
           }
+          pdfDoc = null
+          pdfBytes = null
+          pdfBlob = null
           this.pdf_link = link.fileData
           this.is_loading = false
           clearInterval(this.interval_loading_dot)
