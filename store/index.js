@@ -20,6 +20,7 @@ export const getters = {
     return ls.get('signature')
   },
   user (state) {
+    if (!state.user) { return }
     const dataBytes = CryptoJS.AES.decrypt(state.user.token, process.env.NUXT_CRYPTO_SECRET)
     const decryptedData = JSON.parse(dataBytes.toString(CryptoJS.enc.Utf8))
     const user = {
@@ -51,7 +52,6 @@ export const actions = {
   nuxtServerInit ({ commit }, context) {
     const { req } = context
     if (req.headers.cookie) {
-      console.log('here !')
       const parsed = CookieParser.parse(req.headers.cookie)
       if (parsed.user) {
         try {
@@ -63,7 +63,10 @@ export const actions = {
       }
     }
   },
-  logout ({ commit }) {
+  async logout ({ commit, state }) {
+    if (state.user) {
+      await this.$axios.delete(`deleteFolderUuid/${state.user.hash}`)
+    }
     this.$cookies.removeAll()
     ls.remove('signature')
     commit('deleteStore')

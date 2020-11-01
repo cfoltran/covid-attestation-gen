@@ -165,7 +165,6 @@ export default {
       if (isEmpty) { this.error_sign = 'Veuillez rensigner une signature' }
       if (this.valid && !isEmpty) {
         this.error_sign = ''
-        console.log(isEmpty, data)
         const user = {
           hash: uuidv1(),
           token: CryptoJS.AES.encrypt(JSON.stringify(

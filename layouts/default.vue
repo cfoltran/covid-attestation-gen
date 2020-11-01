@@ -29,7 +29,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['token', 'isAuthenticated'])
+    ...mapGetters(['user', 'isAuthenticated', 'signature'])
+  },
+  async mounted () {
+    if (!this.signature && this.user) {
+      await this.$store.dispatch('logout')
+    }
   }
 }
 </script>

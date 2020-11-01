@@ -6,7 +6,6 @@ export const deleteFolderUuid = (req, res) => {
       hash
     } = req.params
     const dir = `./my-downloads/${hash}`
-    console.log(hash)
     fs.rmdirSync(dir, { recursive: true }, (err) => { console.error(err) })
     res.status(200).json({ success: true })
   } catch (error) {

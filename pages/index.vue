@@ -54,9 +54,7 @@ export default {
     async deleteInformations () {
       try {
         this.is_loading = true
-        console.log(this.user)
-        await this.$axios.delete(`deleteFolderUuid/${this.user.hash}`)
-        this.$store.dispatch('logout')
+        await this.$store.dispatch('logout')
         this.is_loading = false
       } catch (error) {
         console.error(error)

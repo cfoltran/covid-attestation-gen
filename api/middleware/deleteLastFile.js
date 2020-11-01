@@ -7,7 +7,6 @@ export const deleteLastFile = (req, res, next) => {
   const fileNames = fs.readdirSync(dir)
   fileNames.map((item) => {
     fs.unlinkSync(`${dir}/${item}`)
-    console.log('fileNames', item)
   })
   next()
 }
