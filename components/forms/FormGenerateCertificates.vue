@@ -184,6 +184,7 @@
   </v-container>
 </template>
 <script>
+import { PDFDocument } from 'pdf-lib'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
@@ -229,7 +230,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['user']),
+    ...mapGetters(['user', 'signature']),
     payload () {
       const now = new Date().toLocaleString('en-US').split(',')[1].trim()
       const parsedDate = `${now.split(':')[0]}${now.split(':')[1]}${now.split(' ')[1]}`
@@ -254,25 +255,6 @@ export default {
     }
   },
   methods: {
-    b64toBlob (b64Data, contentType = '', sliceSize = 512) {
-      const byteCharacters = atob(b64Data)
-      const byteArrays = []
-
-      for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-        const slice = byteCharacters.slice(offset, offset + sliceSize)
-
-        const byteNumbers = new Array(slice.length)
-        for (let i = 0; i < slice.length; i++) {
-          byteNumbers[i] = slice.charCodeAt(i)
-        }
-
-        const byteArray = new Uint8Array(byteNumbers)
-        byteArrays.push(byteArray)
-      }
-
-      const blob = new Blob(byteArrays, { type: contentType })
-      return blob
-    },
     changeDotLoading () {
       const vm = this
       this.interval_loading_dot = setInterval(() => {
@@ -287,12 +269,24 @@ export default {
           this.changeDotLoading()
           this.is_loading = true
           const link = await this.$axios.post('/certificate', this.payload)
-          console.log(link)
-          const blob = this.b64toBlob(link.data.fileData, 'application/pdf')
-          if (blob) {
+          // const text = await blob.text()
+          const pdfDoc = await PDFDocument.load(link.data.fileData)
+          const pages = pdfDoc.getPages()
+          const firstPage = pages[0]
+          const jpgImage = await pdfDoc.embedPng(this.signature)
+          const jpgDims = jpgImage.scale(0.15)
+          firstPage.drawImage(jpgImage, {
+            x: 140,
+            y: 105,
+            width: jpgDims.width,
+            height: jpgDims.height
+          })
+          const pdfBytes = await pdfDoc.save()
+          const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' })
+          if (pdfBlob) {
             const userAgent = window.navigator.userAgent
             if (window.navigator.msSaveOrOpenBlob) { // IE 11+
-              window.navigator.msSaveOrOpenBlob(blob, link.data.link)
+              window.navigator.msSaveOrOpenBlob(pdfBlob, link.data.link)
             } else if (userAgent.match('FxiOS')) { // FF iOS
               alert('Cannot display on FF iOS')
             } else if (userAgent.match('CriOS')) { // Chrome iOS
@@ -300,12 +294,12 @@ export default {
               reader.onloadend = () => {
                 window.webkitURL.open(reader.result)
               }
-              reader.readAsDataURL(blob)
+              reader.readAsDataURL(pdfBlob)
             } else if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) { // Safari & Opera iOS
-              const url = window.webkitURL.createObjectURL(blob)
+              const url = window.webkitURL.createObjectURL(pdfBlob)
               window.location.href = url
             } else {
-              const fileURL = window.URL.createObjectURL(blob)
+              const fileURL = window.URL.createObjectURL(pdfBlob)
               window.open(fileURL)
             }
           }

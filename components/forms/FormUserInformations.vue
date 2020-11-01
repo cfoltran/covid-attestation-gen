@@ -30,7 +30,22 @@
     <input-text v-model="address" label="Adresse" :error-messages="addressError" />
     <input-text v-model="city" label="Ville" :error-messages="cityError" />
     <input-text v-model="zip" label="Code postal" :error-messages="zipError" />
+    <v-row class="mt-10">
+      <p class="mx-auto">
+        Signature
+      </p>
+    </v-row>
     <v-row>
+      <client-only>
+        <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="150px" height="100px" :options="option" />
+      </client-only>
+    </v-row>
+    <v-row>
+      <p class="mx-auto caption red--text text--darken-3">
+        {{ error_sign }}
+      </p>
+    </v-row>
+    <v-row class="mt-10">
       <v-btn class="mx-auto" @click="save">
         Enregistrer
       </v-btn>
@@ -38,6 +53,7 @@
   </v-container>
 </template>
 <script>
+import CryptoJS from 'crypto-js'
 import { v1 as uuidv1 } from 'uuid'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
@@ -74,6 +90,11 @@ export default {
   },
   data () {
     return {
+      error_sign: '',
+      option: {
+        penColor: 'rgb(0, 0, 0)',
+        backgroundColor: 'rgb(255,255,255)'
+      },
       dom_tom_arr: ['971', '972', '973', '974', '975', '976'],
       menu_date: '',
       first_name: '',
@@ -140,20 +161,36 @@ export default {
     },
     save () {
       this.validate()
-      if (this.valid) {
+      const { isEmpty, data } = this.$refs.signaturePad.saveSignature()
+      if (isEmpty) { this.error_sign = 'Veuillez rensigner une signature' }
+      if (this.valid && !isEmpty) {
+        this.error_sign = ''
+        console.log(isEmpty, data)
         const user = {
           hash: uuidv1(),
-          first_name: this.first_name,
-          last_name: this.last_name,
-          birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR'),
-          birthplace: this.birthplace,
-          address: this.address,
-          city: this.city,
-          zip: this.zip
+          token: CryptoJS.AES.encrypt(JSON.stringify(
+            {
+              first_name: this.first_name,
+              last_name: this.last_name,
+              birthplace: this.birthplace,
+              address: this.address,
+              city: this.city,
+              zip: this.zip
+            },
+            process.env.NUXT_JWT_SECRET,
+            {}
+          ), process.env.NUXT_CRYPTO_SECRET).toString(),
+          birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR')
         }
+        this.$store.commit('setSignature', data)
         this.$store.commit('setUser', user)
       }
     }
   }
 }
 </script>
+<style>
+  .border-pad {
+    border: solid 1px black;
+  }
+</style>

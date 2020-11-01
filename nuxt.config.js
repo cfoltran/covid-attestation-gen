@@ -35,7 +35,8 @@ export default {
   plugins: [
     { src: '~/plugins/vuex-persist.js', ssr: false },
     { src: '~/plugins/colorManager.js', ssr: false },
-    { src: '~/plugins/vuetify.js', mode: 'client' }
+    { src: '~/plugins/vuetify.js', mode: 'client' },
+    { src: '~/plugins/vueSignaturePad.js', mode: 'client' }
   ],
 
   /*
@@ -144,7 +145,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    // 'redirect-ssl',
+    'redirect-ssl',
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],

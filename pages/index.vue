@@ -8,7 +8,7 @@
     </v-row>
     <v-row class="mx-auto">
       <p>
-        Cococertif sauvegarde vos données personnelles dans le cache de votre ordinateurs,
+        Cococertif sauvegarde et crypte vos données personnelles dans le cache de votre ordinateurs,
         elles restent avec vous bien au chaud.
       </p>
     </v-row>
