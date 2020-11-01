@@ -77,18 +77,7 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics'
   ],
-
-  googleAnalytics: {
-    id: process.env.GA_ID, // Use as fallback if no runtime config is provided
-  },
-
-  publicRuntimeConfig: {
-    googleAnalytics: {
-      id: process.env.GA_ID
-    }
-  },
 
   /*
   ** Nuxt.js modules
@@ -102,7 +91,10 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/color-mode',
     '@nuxtjs/robots',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    ['@nuxtjs/google-analytics', {
+      id: process.env.GA_ID || ''
+    }]
   ],
   purgeCSS: {
     // enabled: true,
