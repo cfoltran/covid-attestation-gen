@@ -174,6 +174,12 @@
       </v-radio>
     </v-radio-group>
     <v-row>
+      <p class="mx-auto mb-2">
+        <b>Vous télétravaillez ?</b> Rejoignez le premier réseau social regroupant les télétravailleurs
+        près de chez vous <a href="https://www.loawn.com" target="blank">loawn.com</a>
+      </p>
+    </v-row>
+    <v-row>
       <v-btn class="mx-auto mb-5" :loading="is_loading" @click="generate">
         Générer mon attestation
         <template slot="loader">
