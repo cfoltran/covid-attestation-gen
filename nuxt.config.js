@@ -35,8 +35,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    { src: '~/plugins/vuex-persist.js', ssr: false },
     { src: '~/plugins/colorManager.js', ssr: false },
+    { src: '~/plugins/vuex-persist.js', mode: 'client' },
     { src: '~/plugins/vuetify.js', mode: 'client' },
     { src: '~/plugins/vueSignaturePad.js', mode: 'client' }
   ],
@@ -151,7 +151,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    // 'redirect-ssl',
+    'redirect-ssl', //todo comment this line in dev mode
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],
@@ -161,7 +161,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    transpile: [/^vuetify/],
+    transpile: [/^vuetify/, 'vuex-persist'],
     extractCSS: true,
     extend(config, ctx) {
       

@@ -232,8 +232,6 @@ export default {
   computed: {
     ...mapGetters(['user', 'signature']),
     payload () {
-      const now = new Date().toLocaleString('en-US').split(',')[1].trim()
-      const parsedDate = `${now.split(':')[0]}${now.split(':')[1]}${now.split(' ')[1]}`
       return {
         hash: this.user.hash,
         firstname: this.user.first_name,
@@ -243,7 +241,6 @@ export default {
         address: this.user.address,
         city: this.user.city,
         zipcode: this.user.zip,
-        hour: parsedDate,
         reason: this.radio_check[this.reason]
       }
     },
@@ -268,7 +265,9 @@ export default {
           this.loading_dot = 'Chargement'
           this.changeDotLoading()
           this.is_loading = true
-          const link = await this.$axios.post('/certificate', this.payload)
+          const now = new Date().toLocaleString('en-US').split(',')[1].trim()
+          const parsedDate = `${now.split(':')[0]}${now.split(':')[1]}${now.split(' ')[1]}`
+          const link = await this.$axios.post('/certificate', { ...this.payload, hour: parsedDate })
           let pdfDoc = await PDFDocument.load(link.data.fileData)
           if (this.signature) {
             const pages = pdfDoc.getPages()

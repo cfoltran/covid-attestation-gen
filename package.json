@@ -31,7 +31,6 @@
     "cookieparser": "^0.1.0",
     "cors": "2.8.5",
     "helmet": "4.1.0",
-    "local-storage": "^2.0.0",
     "nuxt": "latest",
     "nuxt-purgecss": "^1.0.0",
     "nuxt-webfontloader": "^1.1.0",

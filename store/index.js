@@ -1,6 +1,5 @@
 import CookieParser from 'cookieparser'
 import StringCrypto from 'string-crypto'
-// import ls from 'local-storage'
 
 const getEmptyState = () => {
   return {
@@ -10,7 +9,7 @@ const getEmptyState = () => {
 }
 
 export const state = () => {
-  return { user: null }
+  return { user: null, signature: null }
 }
 
 export const getters = {
@@ -18,12 +17,6 @@ export const getters = {
     return !!(state.user && Object.keys(state.user).length > 0)
   },
   signature (state) {
-    if (!process.server) {
-      const signatureStored = localStorage.getItem('signature')
-      if (signatureStored) {
-        state.signature = signatureStored
-      }
-    }
     return state.signature
   },
   user (state) {
@@ -43,9 +36,6 @@ export const getters = {
 export const mutations = {
   setSignature (state, signature) {
     state.signature = signature
-    if (!process.server) {
-      localStorage.setItem('signature', signature)
-    }
   },
   setUser (state, user) {
     state.user = Object.assign({}, user)
@@ -78,9 +68,6 @@ export const actions = {
       await this.$axios.delete(`deleteFolderUuid/${state.user.hash}`)
     }
     this.$cookies.remove('user')
-    if (!process.server) {
-      localStorage.removeItem('signature')
-    }
     commit('deleteStore')
   }
 }

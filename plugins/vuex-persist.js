@@ -1,7 +1,11 @@
 import VuexPersistence from 'vuex-persist'
 
 export default ({ store }) => {
-  new VuexPersistence({
-    key: 'covid'
-  }).plugin(store)
+  window.onNuxtReady(() => {
+    new VuexPersistence({
+      key: 'signature',
+      storage: window.localStorage,
+      modules: ['signature']
+    }).plugin(store)
+  })
 }
