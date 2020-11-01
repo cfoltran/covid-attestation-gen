@@ -40,6 +40,9 @@ export default {
     { src: '~/plugins/vuetify.js', mode: 'client' },
     { src: '~/plugins/vueSignaturePad.js', mode: 'client' }
   ],
+  env: {
+    NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
+  },
 
   /*
   ** Auto import components
@@ -148,7 +151,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    (process.env.NODE_ENV === 'production') ? 'redirect-ssl' : '', //todo comment this line in dev
+    (process.env.NODE_ENV === 'production') && 'redirect-ssl',
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],

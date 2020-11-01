@@ -92,6 +92,7 @@ export default {
   },
   data () {
     return {
+      NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
       error_sign: '',
       option: {
         penColor: 'rgb(0, 0, 0)',
@@ -178,7 +179,7 @@ export default {
           }
         )
         const { encryptString } = new StringCrypto()
-        const token = encryptString(userData, process.env.NUXT_CRYPTO_SECRET)
+        const token = encryptString(userData, this.NUXT_CRYPTO_SECRET)
         const user = {
           hash: uuidv1(),
           birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR'),
