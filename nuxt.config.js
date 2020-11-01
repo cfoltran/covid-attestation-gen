@@ -80,6 +80,16 @@ export default {
     '@nuxtjs/google-analytics'
   ],
 
+  googleAnalytics: {
+    id: process.env.GA_ID, // Use as fallback if no runtime config is provided
+  },
+
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GA_ID
+    }
+  },
+
   /*
   ** Nuxt.js modules
   */
