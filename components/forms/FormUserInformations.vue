@@ -53,7 +53,7 @@
   </v-container>
 </template>
 <script>
-// import CryptoJS from 'crypto-js'
+import CryptoJS from 'crypto-js'
 import { v1 as uuidv1 } from 'uuid'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
@@ -165,6 +165,17 @@ export default {
       if (isEmpty) { this.error_sign = 'Veuillez rensigner une signature' }
       if (this.valid && !isEmpty) {
         this.error_sign = ''
+        const userData = JSON.stringify(
+          {
+            first_name: this.first_name,
+            last_name: this.last_name,
+            birthplace: this.birthplace,
+            address: this.address,
+            city: this.city,
+            zip: this.zip
+          }
+        )
+        const token = CryptoJS.AES.encrypt(userData, process.env.NUXT_CRYPTO_SECRET).toString()
         const user = {
           hash: uuidv1(),
           first_name: this.first_name,
@@ -173,17 +184,8 @@ export default {
           address: this.address,
           city: this.city,
           zip: this.zip,
-          // token: CryptoJS.AES.encrypt(JSON.stringify(
-          //   {
-          //     first_name: this.first_name,
-          //     last_name: this.last_name,
-          //     birthplace: this.birthplace,
-          //     address: this.address,
-          //     city: this.city,
-          //     zip: this.zip
-          //   }
-          // ), process.env.NUXT_CRYPTO_SECRET).toString(),
-          birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR')
+          birthdate: new Date(this.birthdate).toLocaleDateString('fr-FR'),
+          token
         }
         this.$store.commit('setSignature', data)
         this.$store.commit('setUser', user)
