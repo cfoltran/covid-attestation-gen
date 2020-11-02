@@ -137,7 +137,7 @@ export default {
     cityBornError () {
       const errors = []
       if (!this.$v.birthplace.$dirty) { return errors }
-      !this.$v.birthplace.required && errors.push('La ville de naissance est renseigné')
+      !this.$v.birthplace.required && errors.push('La ville de naissance n\'est pas renseignée')
       return errors
     },
     addressError () {
