@@ -41,7 +41,7 @@
       </v-row>
       <v-row>
         <client-only>
-          <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="150px" height="100px" :options="option" />
+          <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="300px" height="150px" :options="option" />
         </client-only>
       </v-row>
       <v-row>
