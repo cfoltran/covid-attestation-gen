@@ -22,6 +22,8 @@
       <v-date-picker
         ref="picker"
         v-model="birthdate"
+        locale="fr"
+        max="2015-01-01"
         :error-messages="dateBornError"
         @change="updateDatePicker"
       />
