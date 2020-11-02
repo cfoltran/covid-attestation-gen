@@ -56,7 +56,8 @@ export default {
     { src: '~/plugins/colorManager.js', ssr: false },
     { src: '~/plugins/vuex-persist.js', mode: 'client' },
     { src: '~/plugins/vuetify.js', mode: 'client' },
-    { src: '~/plugins/vueSignaturePad.js', mode: 'client' }
+    { src: '~/plugins/vueSignaturePad.js', mode: 'client' },
+    { src: '~/plugins/ga', mode: 'client' }
   ],
   env: {
     NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
@@ -121,7 +122,26 @@ export default {
   ],
 
   googleAnalytics: {
-    id: process.env.NUXT_GA_ID
+    checkDuplicatedScript: true,
+    id: process.env.NUXT_GA_ID,
+    autoTracking: {
+      screenview: true
+    },
+    debug: {
+      sendHitTask: process.env.NODE_ENV !== 'development'
+    }
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.NUXT_GA_ID,
+      checkDuplicatedScript: true,
+      autoTracking: {
+        screenview: true
+      },
+      debug: {
+        sendHitTask: process.env.NODE_ENV !== 'development'
+      }
+    }
   },
 
   sitemap: {
@@ -178,7 +198,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    // 'redirect-ssl', //todo comment this line in dev mode
+    'redirect-ssl', //todo comment this line in dev mode
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],
