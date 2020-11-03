@@ -58,8 +58,6 @@
   </v-container>
 </template>
 <script>
-// import CryptoJS from 'crypto-js'
-// import Cryptr from 'cryptr'
 import StringCrypto from 'string-crypto'
 import { v1 as uuidv1 } from 'uuid'
 import { validationMixin } from 'vuelidate'

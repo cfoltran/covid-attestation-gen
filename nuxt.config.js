@@ -66,7 +66,10 @@ export default {
     NUXT_GA_ID: process.env.NUXT_GA_ID,
     maxAge: 2147483647
   },
-
+  server: {     
+    port: 3000, // default: 3000     
+    host: '0.0.0.0', // default: localhost   
+  },   //
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components
@@ -200,7 +203,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    'redirect-ssl', //todo comment this line in dev mode
+    // 'redirect-ssl', //todo comment this line in dev mode
     // Will register file from project api directory to handle /api/* requires
     { path: '/api', handler: '~/api' },
   ],

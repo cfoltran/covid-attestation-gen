@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { PDFDocument, StandardFonts } from 'pdf-lib'
 
 const ys = {
@@ -10,7 +9,7 @@ const ys = {
   sport_animaux: 358,
   convocation: 295,
   missions: 255,
-  enfants: 211,
+  enfants: 211
 }
 
 export default ({ app }, inject) => {
@@ -47,10 +46,10 @@ export default ({ app }, inject) => {
       `Naissance: ${birthdate} a ${birthplace}`,
       `Adresse: ${address}`,
       `Sortie: ${date} a ${hour}`,
-      `Motifs: ${reason}`,
+      `Motifs: ${reason}`
     ].join(';\n ')
     const existingPdfBytes = await fetch('certificate.pdf').then(res =>
-      res.arrayBuffer()  
+      res.arrayBuffer()
     )
     const pdfDoc = await PDFDocument.load(existingPdfBytes)
 
@@ -80,15 +79,15 @@ export default ({ app }, inject) => {
     drawText(`${address} ${zipcode} ${city}`, 133, 652)
 
     // reason
-    drawText('x', 78, ys[reason], 18)  
-    const locationSize = getIdealFontSize(font, city, 83, 7, 11)
+    drawText('x', 78, ys[reason], 18)
+    let locationSize = getIdealFontSize(font, city, 83, 7, 11)
     if (!locationSize) {
       locationSize = 7
     }
     drawText(city, 105, 177, locationSize)
     drawText(date, 91, 153, 11)
     drawText(hour, 264, 153, 11)
-  
+
     // creation date
     drawText('Date de création:', 479, 130, 6)
     drawText(`${creationDate} à ${creationHour}`, 470, 124, 6)

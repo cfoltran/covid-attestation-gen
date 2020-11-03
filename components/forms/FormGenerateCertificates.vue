@@ -190,11 +190,11 @@
   </v-container>
 </template>
 <script>
+import { v1 as uuidv1 } from 'uuid'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 import { mdiRadioboxBlank, mdiRadioboxMarked } from '@mdi/js'
-
 import BaseApiFormValidation from '~/mixins/BaseApiFormValidation'
 
 /* eslint-disable no-multi-str */
@@ -271,32 +271,31 @@ export default {
           this.changeDotLoading()
           this.is_loading = true
           const filledPdf = await this.$pdfBuilder.generate(this.payload, this.signature)
-          this.downloadBlob(filledPdf, 'ok.pdf')
-          // let pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' })
-          // if (pdfBlob) {
-          //   const userAgent = window.navigator.userAgent
-          //   if (window.navigator.msSaveOrOpenBlob) { // IE 11+
-          //     window.navigator.msSaveOrOpenBlob(pdfBlob, link.data.link)
-          //   } else if (userAgent.match('FxiOS')) { // FF iOS
-          //     alert('Cannot display on FF iOS')
-          //   } else if (userAgent.match('CriOS')) { // Chrome iOS
-          //     const reader = new FileReader()
-          //     reader.onloadend = () => {
-          //       window.webkitURL.open(reader.result)
-          //     }
-          //     reader.readAsDataURL(pdfBlob)
-          //   } else if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) { // Safari & Opera iOS
-          //     const url = window.webkitURL.createObjectURL(pdfBlob)
-          //     window.location.href = url
-          //   } else {
-          //     const fileURL = window.URL.createObjectURL(pdfBlob)
-          //     window.open(fileURL)
-          //   }
-          // }
-          // pdfDoc = null
-          // pdfBytes = null
-          // pdfBlob = null
-          // this.pdf_link = link.fileData
+          this.downloadBlob(filledPdf, uuidv1())
+          if (filledPdf) {
+            const userAgent = window.navigator.userAgent
+            if (window.navigator.msSaveOrOpenBlob) { // IE 11+
+              window.navigator.msSaveOrOpenBlob(filledPdf, uuidv1())
+            } else if (userAgent.match('FxiOS')) { // FF iOS
+              const fileURL = window.URL.createObjectURL(filledPdf)
+              window.open(fileURL)
+            } else if (userAgent.match('CriOS')) { // Chrome iOS
+              const url = window.webkitURL.createObjectURL(filledPdf)
+              Object.assign(document.createElement('a'), {
+                target: '_blank',
+                href: url
+              }).click()
+            } else if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) { // Safari & Opera iOS
+              const url = window.webkitURL.createObjectURL(filledPdf)
+              Object.assign(document.createElement('a'), {
+                target: '_blank',
+                href: url
+              }).click()
+            } else {
+              const fileURL = window.URL.createObjectURL(filledPdf)
+              window.open(fileURL)
+            }
+          }
           this.is_loading = false
           clearInterval(this.interval_loading_dot)
         } catch (error) {
