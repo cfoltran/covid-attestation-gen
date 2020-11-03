@@ -2,14 +2,11 @@
   <section class="container">
     <div>
       <h1 class="title">
-        {{ error.statusCode }}
+        {{ error.statusCode }} {{ error.message }}
       </h1>
-      <h2 class="info">
-        {{ error.message }}
-      </h2>
-      <nuxt-link v-if="error.statusCode === 404" class="button" to="/">
+      <v-btn v-if="error.statusCode === 404" class="button" to="/">
         Homepage
-      </nuxt-link>
+      </v-btn>
     </div>
   </section>
 </template>

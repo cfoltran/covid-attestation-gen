@@ -63,10 +63,7 @@ export const actions = {
       }
     }
   },
-  async logout ({ commit, state }) {
-    if (state.user) {
-      await this.$axios.delete(`deleteFolderUuid/${state.user.hash}`)
-    }
+  logout ({ commit, state }) {
     this.$cookies.remove('user')
     commit('deleteStore')
   }

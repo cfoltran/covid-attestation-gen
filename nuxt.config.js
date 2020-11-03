@@ -53,23 +53,18 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    { src: '~/plugins/colorManager.js', ssr: false },
     { src: '~/plugins/vuex-persist.js', mode: 'client' },
-    { src: '~/plugins/vuetify.js', mode: 'client' },
-    { src: '~/plugins/vueSignaturePad.js', mode: 'client' },
-    { src: '~/plugins/ga', mode: 'client' },
-    { src: '~/plugins/qrBuilder', mode: 'client' },
-    { src: '~/plugins/pdfBuilder', mode: 'client' },
+    { src: '~/plugins/vuetify.client' },
+    { src: '~/plugins/vueSignaturePad.client' },
+    { src: '~/plugins/ga.client' },
+    { src: '~/plugins/qrBuilder.client' },
+    { src: '~/plugins/pdfBuilder.client' }
   ],
   env: {
     NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,
     NUXT_GA_ID: process.env.NUXT_GA_ID,
     maxAge: 2147483647
   },
-  server: {     
-    port: 3000, // default: 3000     
-    host: '0.0.0.0', // default: localhost   
-  },   //
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components
@@ -88,6 +83,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-helmet',
     'nuxt-purgecss',
     'nuxt-webfontloader',
     '@nuxtjs/axios',
@@ -205,7 +201,6 @@ export default {
     // Will register redirect-ssl npm package
     // 'redirect-ssl', //todo comment this line in dev mode
     // Will register file from project api directory to handle /api/* requires
-    { path: '/api', handler: '~/api' },
   ],
 
   /*

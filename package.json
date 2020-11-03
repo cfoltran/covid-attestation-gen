@@ -33,6 +33,7 @@
     "cors": "2.8.5",
     "helmet": "4.1.0",
     "nuxt": "latest",
+    "nuxt-helmet": "^2.0.0",
     "nuxt-purgecss": "^1.0.0",
     "nuxt-webfontloader": "^1.1.0",
     "passport": "0.4.1",

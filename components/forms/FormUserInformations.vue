@@ -39,10 +39,15 @@
           Signature
         </p>
       </v-row>
-      <v-row>
+      <v-row align="center">
         <client-only>
           <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="150px" height="100px" :options="option" />
         </client-only>
+      </v-row>
+      <v-row align="center">
+        <v-btn class="mx-auto mt-2" rounded small @click="clearSignature">
+          Recommencer la signature
+        </v-btn>
       </v-row>
       <v-row>
         <p class="mx-auto caption red--text text--darken-3">
@@ -163,6 +168,11 @@ export default {
     }
   },
   methods: {
+    clearSignature () {
+      if (this.$refs.signaturePad) {
+        this.$refs.signaturePad.clearSignature()
+      }
+    },
     updateDatePicker (date) {
       this.$refs.menu.save(date)
     },
