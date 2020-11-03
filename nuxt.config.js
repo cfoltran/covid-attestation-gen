@@ -57,7 +57,9 @@ export default {
     { src: '~/plugins/vuex-persist.js', mode: 'client' },
     { src: '~/plugins/vuetify.js', mode: 'client' },
     { src: '~/plugins/vueSignaturePad.js', mode: 'client' },
-    { src: '~/plugins/ga', mode: 'client' }
+    { src: '~/plugins/ga', mode: 'client' },
+    { src: '~/plugins/qrBuilder', mode: 'client' },
+    { src: '~/plugins/pdfBuilder', mode: 'client' },
   ],
   env: {
     NUXT_CRYPTO_SECRET: process.env.NUXT_CRYPTO_SECRET,

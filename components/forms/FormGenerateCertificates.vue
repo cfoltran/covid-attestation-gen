@@ -190,7 +190,6 @@
   </v-container>
 </template>
 <script>
-import { PDFDocument } from 'pdf-lib'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
@@ -271,48 +270,33 @@ export default {
           this.loading_dot = 'Chargement'
           this.changeDotLoading()
           this.is_loading = true
-          const now = new Date().toLocaleString('en-US').split(',')[1].trim()
-          const parsedDate = `${now.split(':')[0]}${now.split(':')[1]}${now.split(' ')[1]}`
-          const link = await this.$axios.post('/certificate', { ...this.payload, hour: parsedDate })
-          let pdfDoc = await PDFDocument.load(link.data.fileData)
-          if (this.signature) {
-            const pages = pdfDoc.getPages()
-            const firstPage = pages[0]
-            const pngImage = await pdfDoc.embedPng(this.signature)
-            const pngDims = pngImage.scale(0.15)
-            firstPage.drawImage(pngImage, {
-              x: 140,
-              y: 105,
-              width: pngDims.width,
-              height: pngDims.height
-            })
-          }
-          let pdfBytes = await pdfDoc.save()
-          let pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' })
-          if (pdfBlob) {
-            const userAgent = window.navigator.userAgent
-            if (window.navigator.msSaveOrOpenBlob) { // IE 11+
-              window.navigator.msSaveOrOpenBlob(pdfBlob, link.data.link)
-            } else if (userAgent.match('FxiOS')) { // FF iOS
-              alert('Cannot display on FF iOS')
-            } else if (userAgent.match('CriOS')) { // Chrome iOS
-              const reader = new FileReader()
-              reader.onloadend = () => {
-                window.webkitURL.open(reader.result)
-              }
-              reader.readAsDataURL(pdfBlob)
-            } else if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) { // Safari & Opera iOS
-              const url = window.webkitURL.createObjectURL(pdfBlob)
-              window.location.href = url
-            } else {
-              const fileURL = window.URL.createObjectURL(pdfBlob)
-              window.open(fileURL)
-            }
-          }
-          pdfDoc = null
-          pdfBytes = null
-          pdfBlob = null
-          this.pdf_link = link.fileData
+          const filledPdf = await this.$pdfBuilder.generate(this.payload, this.signature)
+          this.downloadBlob(filledPdf, 'ok.pdf')
+          // let pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' })
+          // if (pdfBlob) {
+          //   const userAgent = window.navigator.userAgent
+          //   if (window.navigator.msSaveOrOpenBlob) { // IE 11+
+          //     window.navigator.msSaveOrOpenBlob(pdfBlob, link.data.link)
+          //   } else if (userAgent.match('FxiOS')) { // FF iOS
+          //     alert('Cannot display on FF iOS')
+          //   } else if (userAgent.match('CriOS')) { // Chrome iOS
+          //     const reader = new FileReader()
+          //     reader.onloadend = () => {
+          //       window.webkitURL.open(reader.result)
+          //     }
+          //     reader.readAsDataURL(pdfBlob)
+          //   } else if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) { // Safari & Opera iOS
+          //     const url = window.webkitURL.createObjectURL(pdfBlob)
+          //     window.location.href = url
+          //   } else {
+          //     const fileURL = window.URL.createObjectURL(pdfBlob)
+          //     window.open(fileURL)
+          //   }
+          // }
+          // pdfDoc = null
+          // pdfBytes = null
+          // pdfBlob = null
+          // this.pdf_link = link.fileData
           this.is_loading = false
           clearInterval(this.interval_loading_dot)
         } catch (error) {
@@ -322,6 +306,14 @@ export default {
           console.error(error)
         }
       }
+    },
+    downloadBlob (blob, fileName) {
+      const link = document.createElement('a')
+      const url = URL.createObjectURL(blob)
+      link.href = url
+      link.download = fileName
+      document.body.appendChild(link)
+      link.click()
     }
   }
 }
