@@ -41,7 +41,7 @@
       </v-row>
       <v-row align="center">
         <client-only>
-          <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="150px" height="100px" :options="option" />
+          <vue-signature-pad ref="signaturePad" class="mx-auto border-pad" width="300px" height="150px" :options="option" />
         </client-only>
       </v-row>
       <v-row align="center">
@@ -140,7 +140,7 @@ export default {
     cityBornError () {
       const errors = []
       if (!this.$v.birthplace.$dirty) { return errors }
-      !this.$v.birthplace.required && errors.push('La ville de naissance est renseigné')
+      !this.$v.birthplace.required && errors.push('La ville de naissance n\'est pas renseignée')
       return errors
     },
     addressError () {
