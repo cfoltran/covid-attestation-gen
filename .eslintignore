@@ -100,3 +100,6 @@ report.*
 
 # Test screenshots
 test/screenshots/**/*.png
+
+# Legals
+pages/legals.vue
