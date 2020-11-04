@@ -205,7 +205,7 @@ export default {
 
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    // 'redirect-ssl', //todo comment this line in dev mode
+    'redirect-ssl', //todo comment this line in dev mode
     // Will register file from project api directory to handle /api/* requires
   ],
 
