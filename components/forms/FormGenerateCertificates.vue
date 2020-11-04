@@ -288,15 +288,11 @@ export default {
                 href: url
               }).click()
             } else if (userAgent.match(/safari/i)) {
-              console.log('heyyyyy')
               const fileURL = window.URL.createObjectURL(filledPdf)
               Object.assign(document.createElement('a'), {
                 href: fileURL,
-                download: true,
-                target: '_self'
+                download: uuidv1()
               }).click()
-              // window.open(fileURL)
-              // target: '_tab',
             } else {
               const fileURL = window.URL.createObjectURL(filledPdf)
               Object.assign(document.createElement('a'), {
