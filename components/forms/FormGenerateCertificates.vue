@@ -242,6 +242,7 @@ export default {
         address: this.user.address,
         city: this.user.city,
         zipcode: this.user.zip,
+        signature: this.signature,
         reason: this.radio_check[this.reason]
       }
     },
@@ -266,7 +267,7 @@ export default {
           this.loading_dot = 'Chargement'
           this.changeDotLoading()
           this.is_loading = true
-          const filledPdf = await this.$pdfBuilder.generate(this.payload, this.signature)
+          const filledPdf = await this.$pdfBuilder.generate(this.payload)
           if (filledPdf) {
             const userAgent = window.navigator.userAgent
             console.log(userAgent)

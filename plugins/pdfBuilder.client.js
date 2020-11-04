@@ -13,7 +13,7 @@ const ys = {
 }
 
 export default ({ app }, inject) => {
-  const generate = async (profile, signature) => {
+  const generate = async (profile) => {
     const creationInstant = new Date()
     const creationDate = creationInstant.toLocaleDateString('fr-FR')
     const creationHour = creationInstant
@@ -28,7 +28,8 @@ export default ({ app }, inject) => {
       address,
       zipcode,
       city,
-      reason
+      reason,
+      signature
     } = profile
 
     const d = new Date()
