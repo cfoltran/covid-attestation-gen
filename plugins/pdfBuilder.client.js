@@ -39,7 +39,7 @@ export default ({ app }, inject) => {
     const h = new Intl.DateTimeFormat('fr', { hour: '2-digit' }).format(d).replace(' h', ':')
     const m = new Intl.DateTimeFormat('fr', { minute: '2-digit' }).format(d)
     const date = `${da}/${mo}/${ye}`
-    const hour = `${h}${m}`
+    const hour = `${h}${(+m < 10 ? '0' : '') + m}`
     const data = [
       `Cree le: ${creationDate} a ${creationHour}`,
       `Nom: ${lastname}`,
