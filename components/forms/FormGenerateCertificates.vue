@@ -287,6 +287,12 @@ export default {
                 target: '_blank',
                 href: url
               }).click()
+            } else if (userAgent.match(/safari/i)) {
+              const fileURL = window.URL.createObjectURL(filledPdf)
+              Object.assign(document.createElement('a'), {
+                href: fileURL,
+                download: uuidv1()
+              }).click()
             } else {
               const fileURL = window.URL.createObjectURL(filledPdf)
               Object.assign(document.createElement('a'), {
