@@ -92,7 +92,6 @@ export default {
     'nuxt-helmet',
     'nuxt-purgecss',
     'nuxt-webfontloader',
-    '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',
     '@nuxtjs/dotenv',
@@ -157,10 +156,6 @@ export default {
     routes: [
       '/'
     ]
-  },
-  
-  axios: {
-    baseURL: process.env.NUXT_BASE_API_URL || 'http://localhost:3000/api'
   },
 
   webfontloader: {
