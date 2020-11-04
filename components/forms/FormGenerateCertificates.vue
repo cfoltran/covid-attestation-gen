@@ -197,7 +197,6 @@ import { mapGetters } from 'vuex'
 import { mdiRadioboxBlank, mdiRadioboxMarked } from '@mdi/js'
 import BaseApiFormValidation from '~/mixins/BaseApiFormValidation'
 
-/* eslint-disable no-multi-str */
 export default {
   name: 'FormGenerateCertificates',
   mixins: [validationMixin, BaseApiFormValidation],
@@ -212,9 +211,6 @@ export default {
       mdiRadioboxMarked,
       interval_loading_dot: '',
       loading_dot: '',
-      hour: new Date().getHours(),
-      minutes: new Date().getMinutes(),
-      pdf_link: '',
       is_loading: false,
       error: null,
       reason: null,
@@ -271,9 +267,9 @@ export default {
           this.changeDotLoading()
           this.is_loading = true
           const filledPdf = await this.$pdfBuilder.generate(this.payload, this.signature)
-          this.downloadBlob(filledPdf, uuidv1())
           if (filledPdf) {
             const userAgent = window.navigator.userAgent
+            console.log(userAgent)
             if (window.navigator.msSaveOrOpenBlob) { // IE 11+
               window.navigator.msSaveOrOpenBlob(filledPdf, uuidv1())
             } else if (userAgent.match('FxiOS')) { // FF iOS
@@ -293,7 +289,10 @@ export default {
               }).click()
             } else {
               const fileURL = window.URL.createObjectURL(filledPdf)
-              window.open(fileURL)
+              Object.assign(document.createElement('a'), {
+                target: '_blank',
+                href: fileURL
+              }).click()
             }
           }
           this.is_loading = false
@@ -305,14 +304,6 @@ export default {
           console.error(error)
         }
       }
-    },
-    downloadBlob (blob, fileName) {
-      const link = document.createElement('a')
-      const url = URL.createObjectURL(blob)
-      link.href = url
-      link.download = fileName
-      document.body.appendChild(link)
-      link.click()
     }
   }
 }

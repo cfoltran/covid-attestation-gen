@@ -12,6 +12,7 @@
         <v-btn icon href="https://github.com/cfoltran/covid-attestation-gen" target="_blank">
           <v-icon>{{ mdiGithub }}</v-icon>
         </v-btn>
+        <v-spacer />
         <v-btn class="ml-2" text to="/legals">
           Mentions légales
         </v-btn>

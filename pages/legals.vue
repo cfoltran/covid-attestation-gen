@@ -14,10 +14,10 @@
     </v-btn>
     <h3
       placeholder="Document name"
-      style="color: rgb(51, 51, 51); font-style: normal; text-align: center"
+      style="font-style: normal; text-align: center"
       type="name"
     >
-      <span style="color: #000000"
+      <span
         ><span style="font-size: 18px"
           >Mentions légales et politique de confidentialité</span
         ></span
@@ -29,7 +29,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><!----><!----><!----><span rl-text="content1"
               >L'entreprise individuelle&nbsp;<span class="boiler-field"
                 >Clément Foltran</span
@@ -48,12 +48,12 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Pour toute information complémentaire sur la protection des données
             personnelles, nous vous invitons à consulter le
             site&nbsp;:&nbsp;</span
           ><a href="https://www.cnil.fr/"
-            ><span style="color: #000000">https://www.cnil.fr/</span></a
+            ><span>https://www.cnil.fr/</span></a
           ></span
         ></span
       >
@@ -64,7 +64,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal; text-align: start"
               >La poursuite de la navigation sur ce site vaut acceptation sans
               réserve des dispositions et conditions d'utilisation qui
@@ -78,7 +78,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >La version actuellement en ligne de ces conditions d'utilisation
             est la seule opposable pendant toute la durée d'utilisation du site
             et jusqu'à ce qu'une nouvelle version la remplace.</span
@@ -91,7 +91,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 1 - Mentions&nbsp;légales</strong></span
           ></span
         ></span
@@ -102,7 +102,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><u>1.1&nbsp;Site (ci-après «&nbsp;le site&nbsp;»)</u>&nbsp;:
           </span></span
         ></span
@@ -114,7 +114,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span class="boiler-field">https://cococertif.com</span></span
           ></span
         ></span
@@ -126,7 +126,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><u>1.2&nbsp;Éditeur (ci-après «&nbsp;l'éditeur&nbsp;»)</u
             >&nbsp;:&nbsp;</span
           ></span
@@ -141,7 +141,7 @@
       <p>
         L'entreprise indivuduelle&nbsp;<span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               ><span class="boiler-field">Clément Foltran</span></span
             ></span
           ></span
@@ -151,7 +151,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               >située :&nbsp;<span class="boiler-field empty"></span
               >,&nbsp;<span class="boiler-field empty"></span></span></span
         ></span>
@@ -160,7 +160,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               >immatriculée au RCS de&nbsp;<span
                 class="boiler-field empty"
               ></span></span></span
@@ -170,7 +170,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               >n° de téléphone :&nbsp;<span
                 class="boiler-field empty"
               ></span></span></span
@@ -180,7 +180,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               >adresse mail :&nbsp;<span class="boiler-field"
                 >contact@cococertif.com</span
               ></span
@@ -199,7 +199,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><u>1.3&nbsp;Hébergeur (ci-après « l'hébergeur »)</u> :&nbsp;</span
           ></span
         ></span
@@ -211,7 +211,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span class="boiler-field">https://cococertif.com</span>&nbsp;est
             hébergé par&nbsp;<span class="boiler-field">Heroku</span>, dont le
             siège social est situé
@@ -230,7 +230,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000">&nbsp;</span></span
+          ><span>&nbsp;</span></span
         ></span
       >
     </p>
@@ -238,7 +238,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 2 -&nbsp;Accès au site</strong></span
           ></span
         ></span
@@ -249,7 +249,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >L'accès au site et son utilisation sont réservés à un usage
             strictement personnel. Vous vous engagez à ne pas utiliser ce site
             et les informations ou données qui y figurent à des fins
@@ -265,7 +265,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 3 -&nbsp;Contenu du site</strong></span
           ></span
         ></span
@@ -276,7 +276,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Toutes les marques, photographies, textes, commentaires,
             illustrations, images animées ou non, séquences vidéo, sons, ainsi
             que toutes les applications informatiques qui pourraient être
@@ -291,7 +291,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Ils sont la propriété pleine et entière de l'éditeur ou de ses
             partenaires. Toute reproduction, représentation, utilisation ou
             adaptation, sous quelque forme que ce soit, de tout ou partie de ces
@@ -310,7 +310,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 4 -&nbsp;Gestion du site</strong></span
           ></span
         ></span
@@ -321,7 +321,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Pour la bonne gestion du site, l'éditeur pourra à tout
             moment&nbsp;:</span
           ></span
@@ -332,7 +332,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >-&nbsp;&nbsp;suspendre, interrompre ou limiter l'accès à tout ou
             partie du site, réserver l'accès au site, ou à certaines parties du
             site, à une catégorie déterminée d'internautes ;</span
@@ -344,7 +344,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >-&nbsp;&nbsp;supprimer toute information pouvant en perturber le
             fonctionnement ou entrant en contravention avec les lois nationales
             ou internationales ;</span
@@ -356,7 +356,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >-&nbsp;&nbsp;suspendre le site afin de procéder à des mises à
             jour.</span
           ></span
@@ -368,7 +368,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 5 -&nbsp;Responsabilités</strong></span
           ></span
         ></span
@@ -379,7 +379,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >La responsabilité de l'éditeur ne peut être engagée en cas de
             défaillance, panne, difficulté ou interruption de fonctionnement,
             empêchant l'accès au site ou à une de ses fonctionnalités.</span
@@ -391,7 +391,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Le matériel de connexion au site que vous utilisez est sous votre
             entière responsabilité. Vous devez prendre toutes les mesures
             appropriées pour protéger votre matériel et vos propres données
@@ -408,7 +408,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >L'éditeur ne pourra être tenu responsable en cas de poursuites
             judiciaires à votre encontre :</span
           ></span
@@ -419,7 +419,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >-&nbsp;&nbsp;du fait de l'usage du site ou de tout service
             accessible&nbsp;via&nbsp;Internet&nbsp;;</span
           ></span
@@ -430,7 +430,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >-&nbsp;&nbsp;du fait du non-respect par vous des présentes
             conditions générales.</span
           ></span
@@ -443,7 +443,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >L'éditeur n'est pas responsable des dommages causés à vous-même, à
             des tiers et/ou à votre équipement du fait de votre connexion ou de
             votre utilisation du site et vous renoncez à toute action contre lui
@@ -456,7 +456,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Si l'éditeur venait à faire l'objet d'une procédure amiable ou
             judiciaire en&nbsp;raison de votre utilisation du site, il pourra se
             retourner contre vous pour obtenir l'indemnisation de tous les
@@ -471,7 +471,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 6 -&nbsp;Liens hypertextes</strong></span
           ></span
         ></span
@@ -482,7 +482,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >La mise en place par les utilisateurs&nbsp;de tous liens
             hypertextes vers tout ou partie du site&nbsp;<!----><span
               rl-text="content27"
@@ -499,7 +499,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Toute information accessible&nbsp;via&nbsp;un lien vers d'autres
             sites n'est pas publiée par l'éditeur. L'éditeur ne dispose d'aucun
             droit sur le contenu présent dans ledit lien.&nbsp;</span
@@ -512,7 +512,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong
               >Article 7 -&nbsp;Collecte et protection&nbsp;des données</strong
             ></span
@@ -526,14 +526,14 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Vos données sont collectées par
             <!----><!----></span
           ></span
         ></span
       ><span
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span
               ><!----><span rl-text="content1"
                 >l'entreprise individuelle&nbsp;<span class="boiler-field"
@@ -549,7 +549,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Une donnée à caractère personnel désigne toute information
             concernant une personne physique identifiée ou identifiable
             (personne concernée) ; est réputée&nbsp;identifiable une personne
@@ -566,7 +566,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Les informations personnelles pouvant être recueillies sur le site
             sont principalement utilisées par l'éditeur pour la gestion des
             relations avec vous, et le cas échéant pour le traitement de vos
@@ -581,7 +581,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Les données personnelles collectées sont les suivantes :</span
           ></span
         ></span
@@ -607,7 +607,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000">&nbsp;</span></span
+          ><span>&nbsp;</span></span
         ></span
       >
     </p>
@@ -615,7 +615,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong
               >Article 8 - Droit d’accès, de rectification et de déréférencement
               de vos données</strong
@@ -625,14 +625,14 @@
       >
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       &nbsp;
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >En application de la réglementation applicable aux données à
               caractère personnel, les utilisateurs disposent des droits
@@ -647,7 +647,7 @@
       <li>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               ><span style="font-style: normal"
                 >le droit d’accès&nbsp;: ils peuvent exercer leur droit d'accès,
                 pour connaître les données personnelles les concernant, en
@@ -660,11 +660,11 @@
           ></span
         >
       </li>
-      <li dir="ltr" style="color: rgb(0, 0, 0); font-style: normal">
+      <li dir="ltr" style="font-style: normal">
         <p dir="ltr" style="text-align: justify">
           <span style="font-size: 16px"
             ><span
-              ><span style="color: #000000"
+              ><span
                 ><span style="font-style: normal"
                   >le droit de rectification&nbsp;: si les données à caractère
                   personnel détenues par la Plateforme sont inexactes, ils
@@ -675,11 +675,11 @@
           >
         </p>
       </li>
-      <li dir="ltr" style="color: rgb(0, 0, 0); font-style: normal">
+      <li dir="ltr" style="font-style: normal">
         <p dir="ltr" style="text-align: justify">
           <span style="font-size: 16px"
             ><span
-              ><span style="color: #000000"
+              ><span
                 ><span style="font-style: normal"
                   >le droit de suppression des données&nbsp;: les utilisateurs
                   peuvent demander la suppression de leurs données à caractère
@@ -691,11 +691,11 @@
           >
         </p>
       </li>
-      <li dir="ltr" style="color: rgb(0, 0, 0); font-style: normal">
+      <li dir="ltr" style="font-style: normal">
         <p dir="ltr" style="text-align: justify">
           <span style="font-size: 16px"
             ><span
-              ><span style="color: #000000"
+              ><span
                 ><span style="font-style: normal"
                   >le droit à la limitation du traitement&nbsp;: les
                   utilisateurs peuvent de demander à la Plateforme de limiter le
@@ -707,11 +707,11 @@
           >
         </p>
       </li>
-      <li dir="ltr" style="color: rgb(0, 0, 0); font-style: normal">
+      <li dir="ltr" style="font-style: normal">
         <p dir="ltr" style="text-align: justify">
           <span style="font-size: 16px"
             ><span
-              ><span style="color: #000000"
+              ><span
                 ><span style="font-style: normal"
                   >le droit de s’opposer au traitement des données&nbsp;: les
                   utilisateurs peuvent s’opposer à ce que leurs&nbsp;données
@@ -723,11 +723,11 @@
           >
         </p>
       </li>
-      <li dir="ltr" style="color: rgb(0, 0, 0); font-style: normal">
+      <li dir="ltr" style="font-style: normal">
         <p dir="ltr" style="text-align: justify">
           <span style="font-size: 16px"
             ><span
-              ><span style="color: #000000"
+              ><span
                 ><span style="font-style: normal"
                   >le droit à la portabilité : ils peuvent réclamer que la
                   Plateforme leur remette les données personnelles
@@ -741,10 +741,10 @@
       </li>
     </ul>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Vous pouvez exercer ce droit en nous contactant, à l’adresse
             suivante&nbsp;:</span
           ></span
@@ -752,23 +752,23 @@
       >
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"><!---->&nbsp;<!----><!----></span></span
+          ><span><!---->&nbsp;<!----><!----></span></span
         ></span
       >&nbsp;<!----><!----><span class="boiler-field empty"></span
       >&nbsp;<!----><span class="boiler-field empty"></span>.
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       &nbsp;
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Ou par email, à l’adresse&nbsp;:</span
           ></span
         ></span
@@ -780,7 +780,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               ><!----><span class="boiler-field">contact@cococertif.com</span
               >&nbsp;</span
             ></span
@@ -798,15 +798,15 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000">&nbsp;</span></span
+          ><span>&nbsp;</span></span
         ></span
       >
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Toute demande doit être accompagnée de la photocopie d’un titre
             d’identité en cours de validité signé et faire mention de l’adresse
             à laquelle l'éditeur pourra contacter le demandeur. La réponse sera
@@ -819,14 +819,14 @@
       >
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       &nbsp;
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >De plus, et depuis la loi n°2016-1321 du 7 octobre 2016, les
             personnes qui le souhaitent, ont la possibilité d’organiser le sort
             de leurs données après leur décès. Pour plus d’information sur le
@@ -842,16 +842,16 @@
     <p dir="ltr" style="text-align: justify">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >Les utilisateurs peuvent aussi introduire une réclamation auprès
               de la CNIL sur le site de la CNIL&nbsp;:
             </span></span
           ><a href="https://www.cnil.fr"
-            ><span style="color: #000000"
+            ><span
               ><span style="font-style: normal">https://www.cnil.fr</span></span
             ></a
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal">. </span></span
           ></span
         ></span
@@ -863,7 +863,7 @@
     <p dir="ltr" style="text-align: justify">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >Nous vous recommandons&nbsp;de nous contacter&nbsp;dans un
               premier temps&nbsp;avant de déposer une réclamation auprès de la
@@ -880,7 +880,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 9 - Utilisation des données</strong></span
           ></span
         ></span
@@ -892,7 +892,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >Les données personnelles collectées auprès des utilisateurs ont
               pour objectif la mise à disposition des services de la Plateforme,
@@ -910,11 +910,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- accès et utilisation de la Plateforme par
               l'utilisateur&nbsp;;</span
@@ -926,11 +926,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- gestion du fonctionnement et optimisation de la
               Plateforme&nbsp;;</span
@@ -942,11 +942,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- mise en œuvre d'une assistance utilisateurs&nbsp;;</span
             ></span
@@ -957,11 +957,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- vérification, identification et authentification des données
               transmises par l'utilisateur&nbsp;;</span
@@ -973,11 +973,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- personnalisation des services en affichant des publicités en
               fonction de l'historique de navigation de l'utilisateur, selon ses
@@ -990,11 +990,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- prévention et détection des fraudes, malwares (malicious
               softwares ou logiciels malveillants) et gestion des incidents de
@@ -1007,11 +1007,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- gestion des éventuels litiges avec les
               utilisateurs&nbsp;;</span
@@ -1023,11 +1023,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- envoi d'informations commerciales et publicitaires, en fonction
               des préférences de l'utilisateur ;</span
@@ -1041,11 +1041,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000">&nbsp;</span></span
+          ><span>&nbsp;</span></span
         ></span
       >
     </p>
@@ -1053,7 +1053,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong
               >Article 10 - Politique de conservation des données</strong
             ></span
@@ -1067,7 +1067,7 @@
     <p dir="ltr" style="text-align: justify">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >La Plateforme conserve vos données pour la durée nécessaire pour
               vous fournir ses services ou son&nbsp;assistance.
@@ -1080,7 +1080,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >Dans la mesure raisonnablement nécessaire ou requise pour
               satisfaire aux obligations légales ou réglementaires, régler des
@@ -1100,7 +1100,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong
               ><span style="font-style: normal"
                 >Article 11- Partage des données personnelles avec des
@@ -1117,7 +1117,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >Les données personnelles peuvent être partagées avec des sociétés
               tierces exclusivement dans l’Union européenne, dans les cas
@@ -1132,11 +1132,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- lorsque l'utilisateur publie, dans les zones de commentaires
               libres de la Plateforme, des informations accessibles au
@@ -1149,11 +1149,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- quand l'utilisateur autorise le site web d'un tiers à accéder à
               ses données&nbsp;;</span
@@ -1165,11 +1165,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- quand la Plateforme recourt aux services de prestataires pour
               fournir l'assistance utilisateurs, la publicité et les services de
@@ -1186,11 +1186,11 @@
 
     <p
       dir="ltr"
-      style="color: rgb(0, 0, 0); font-style: normal; text-align: justify"
+      style="font-style: normal; text-align: justify"
     >
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal"
               >- si la loi l'exige, la Plateforme peut effectuer la transmission
               de données pour donner suite aux réclamations présentées contre la
@@ -1207,7 +1207,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 12&nbsp;- Offres commerciales</strong></span
           ></span
         ></span
@@ -1219,7 +1219,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Vous êtes susceptible de recevoir des offres commerciales de
             l'éditeur. Si vous ne le souhaitez pas, veuillez cliquer sur le lien
             suivant&nbsp;: <span class="boiler-field empty"></span>.</span
@@ -1231,7 +1231,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Vos données sont susceptibles d’être utilisées par les partenaires
             de l'éditeur à des fins de prospection commerciale, si vous ne le
             souhaitez pas, veuillez cliquer sur le lien suivant&nbsp;:
@@ -1244,7 +1244,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Si, lors de la consultation du site, vous accédez à des données à
             caractère personnel, vous devez vous abstenir de toute collecte, de
             toute utilisation non autorisée et de tout acte pouvant constituer
@@ -1258,7 +1258,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Les données sont conservées et utilisées pour une durée conforme à
             la législation en vigueur.</span
           ></span
@@ -1270,7 +1270,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 13&nbsp;-&nbsp;Cookies</strong>&nbsp;</span
           ></span
         ></span
@@ -1279,20 +1279,20 @@
 
     <p>&nbsp;</p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Qu’est-ce qu’un «&nbsp;cookie&nbsp;»&nbsp;?</span
           ></span
         ></span
       >
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Un «&nbsp;Cookie&nbsp;» ou traceur est un fichier électronique
             déposé sur un terminal (ordinateur, tablette, smartphone,…) et lu
             par exemple lors de la consultation d'un site internet, de la
@@ -1309,20 +1309,20 @@
               font-style: normal;
               text-align: start;
             "
-            ><span style="color: #000000"
+            ><span
               >https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi</span
             ></a
-          ><span style="color: #000000"
+          ><span
             ><span style="font-style: normal; text-align: start">)</span>.</span
           ></span
         ></span
       >
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >En naviguant sur ce site, des «&nbsp;cookies&nbsp;» émanant de la
             société responsable du site concerné et/ou des sociétés tiers
             pourront être déposés sur votre terminal.</span
@@ -1331,10 +1331,10 @@
       >
     </p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Lors de la première navigation sur ce site, une bannière
             explicative sur l’utilisation des «&nbsp;cookies&nbsp;» apparaîtra.
             Dès lors, en poursuivant la navigation, le client et/ou prospect
@@ -1354,7 +1354,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Toutes les informations collectées&nbsp;ne seront utilisées que
             pour suivre le volume, le type et la configuration du trafic
             utilisant ce site, pour en développer la conception et l'agencement
@@ -1370,7 +1370,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Les cookies suivants sont présents sur ce site :&nbsp;</span
           ></span
         ></span
@@ -1384,7 +1384,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               ><strong>Cookies Google :</strong></span
             ></span
           ></span
@@ -1394,7 +1394,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000"
+            ><span
               >- Google analytics : permet de mesurer l'audience du site ;<br />
               - Google tag manager : facilite l’implémentation des tags sur les
               pages et permet&nbsp;de gérer les balises Google ;<br />
@@ -1427,7 +1427,7 @@
           <p>
             <span style="font-size: 16px"
               ><span
-                ><span style="color: #000000"
+                ><span
                   >-&nbsp;<span class="boiler-field"
                     >Cookies chiffrés permettant de persister les données
                     saisies dans le formulaire</span
@@ -1442,7 +1442,7 @@
       <p>
         <span style="font-size: 16px"
           ><span
-            ><span style="color: #000000">&nbsp;&nbsp;</span></span
+            ><span>&nbsp;&nbsp;</span></span
           ></span
         >
       </p>
@@ -1451,7 +1451,7 @@
     <p>
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >La&nbsp;durée de vie de ces cookies est de treize mois.</span
           ></span
         ></span
@@ -1460,20 +1460,20 @@
 
     <p>&nbsp;</p>
 
-    <p style="color: rgb(82, 82, 82); font-style: normal; text-align: start">
+    <p style="font-style: normal; text-align: start">
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Pour plus d’informations sur l’utilisation, la gestion et la
             suppression des «&nbsp;cookies&nbsp;», pour tout type de navigateur,
             nous vous invitons à consulter le lien suivant&nbsp;:&nbsp;</span
           ><a
             href="https://www.cnil.fr/fr/cookies-les-outils-pour-les-maitriser"
             style="color: rgb(214, 128, 33)"
-            ><span style="color: #000000"
+            ><span
               >https://www.cnil.fr/fr/cookies-les-outils-pour-les-maitriser</span
             ></a
-          ><span style="color: #000000">.</span></span
+          ><span>.</span></span
         ></span
       >
     </p>
@@ -1482,7 +1482,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong
               >Article 14&nbsp;-&nbsp;Photographies et représentation des
               produits</strong
@@ -1496,7 +1496,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Les photographies de produits, accompagnant leur description, ne
             sont pas contractuelles et n'engagent pas l'éditeur.</span
           ></span
@@ -1508,7 +1508,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 15&nbsp;-&nbsp;Loi applicable</strong></span
           ></span
         ></span
@@ -1519,7 +1519,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Les présentes conditions d'utilisation du site sont régies par la
             loi française et soumises à la compétence des tribunaux du siège
             social de l'éditeur, sous réserve d'une attribution de compétence
@@ -1534,7 +1534,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             ><strong>Article 16&nbsp;-&nbsp;Contactez-nous</strong></span
           ></span
         ></span
@@ -1544,7 +1544,7 @@
       <br />
       <span style="font-size: 16px"
         ><span
-          ><span style="color: #000000"
+          ><span
             >Pour toute question, information sur les produits présentés sur le
             site, ou concernant le site lui-même, vous pouvez laisser un message
             à l'adresse suivante&nbsp;:&nbsp;<!----><!----><!----><span
