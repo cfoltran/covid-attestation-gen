@@ -1,20 +1,8 @@
-# nuxt-express
+# Cococertif
 
-## Build Setup
+## Cococertif permet de générer des certificat de déplacement.
 
-```bash
-# install dependencies
-$ yarn install
+Cococertif sauvegarde et chiffre vos données personnelles dans le cache de votre navigateur,
+elles restent avec vous bien au chaud.
 
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+[S/o LAB-MI pour l'algo des pdfs](https://github.com/LAB-MI/attestation-deplacement-derogatoire-q4-2020).
