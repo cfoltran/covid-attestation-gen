@@ -270,7 +270,6 @@ export default {
           const filledPdf = await this.$pdfBuilder.generate(this.payload)
           if (filledPdf) {
             const userAgent = window.navigator.userAgent
-            console.log(userAgent)
             if (window.navigator.msSaveOrOpenBlob) { // IE 11+
               window.navigator.msSaveOrOpenBlob(filledPdf, uuidv1())
             } else if (userAgent.match('FxiOS')) { // FF iOS

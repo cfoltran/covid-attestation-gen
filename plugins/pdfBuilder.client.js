@@ -97,9 +97,10 @@ export default ({ app }, inject) => {
     if (signature) {
       const pngImage = await pdfDoc.embedPng(signature)
       const pngDims = pngImage.scale(0.15)
+      const { width, height } = page1.getSize()
       page1.drawImage(pngImage, {
-        x: 140,
-        y: 105,
+        x: width / 2 - 170,
+        y: height / 2 - 330,
         width: pngDims.width,
         height: pngDims.height
       })
