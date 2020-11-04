@@ -66,11 +66,6 @@ export default {
     maxAge: 2147483647
   },
 
-  server: {     
-    port: 3000, // default: 3000     
-    host: '0.0.0.0', // default: localhost   
-  },
-
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components
