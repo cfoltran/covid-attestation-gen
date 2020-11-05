@@ -281,24 +281,14 @@ export default {
                 target: '_blank',
                 href: url
               }).click()
-            } else if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) { // Safari & Opera iOS
-              const url = window.webkitURL.createObjectURL(filledPdf)
-              Object.assign(document.createElement('a'), {
-                target: '_blank',
-                href: url
-              }).click()
-            } else if (userAgent.match(/safari/i)) {
-              const fileURL = window.URL.createObjectURL(filledPdf)
-              Object.assign(document.createElement('a'), {
-                href: fileURL,
-                download: uuidv1()
-              }).click()
             } else {
-              const fileURL = window.URL.createObjectURL(filledPdf)
-              Object.assign(document.createElement('a'), {
-                target: '_blank',
-                href: fileURL
-              }).click()
+              const link = document.createElement('a')
+              const url = URL.createObjectURL(filledPdf)
+              link.href = url
+              link.target = '_blank'
+              link.download = uuidv1()
+              document.body.appendChild(link)
+              link.click()
             }
           }
           this.is_loading = false
