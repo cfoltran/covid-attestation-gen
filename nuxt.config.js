@@ -200,6 +200,11 @@ export default {
     // Will register file from project api directory to handle /api/* requires
   ],
 
+  // server: {     
+  //   port: 3000,
+  //   host: '0.0.0.0',
+  // },
+
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
