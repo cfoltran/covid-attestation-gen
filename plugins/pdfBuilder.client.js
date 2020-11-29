@@ -1,15 +1,15 @@
 import { PDFDocument, StandardFonts } from 'pdf-lib'
 
 const ys = {
-  travail: 488,
-  achats: 417,
-  sante: 347,
-  famille: 325,
-  handicap: 291,
-  sport_animaux: 269,
-  convocation: 199,
-  missions: 178,
-  enfants: 157
+  travail: 551, // 488 + 63
+  achats: 480,
+  sante: 432,
+  famille: 408,
+  handicap: 372,
+  sport_animaux: 347,
+  convocation: 275,
+  missions: 251,
+  enfants: 227
 }
 
 export default ({ app }, inject) => {
@@ -74,20 +74,20 @@ export default ({ app }, inject) => {
     const drawText = (text, x, y, size = 11) => {
       page1.drawText(text, { x, y, size, font })
     }
-    drawText(`${firstname} ${lastname}`, 107, 657)
-    drawText(birthdate, 107, 627)
-    drawText(`${address} ${zipcode} ${city}`, 124, 596)
-    drawText(birthplace, 240, 627)
+    drawText(`${firstname} ${lastname}`, 107, 704)
+    drawText(birthdate, 107, 686)
+    drawText(`${address} ${zipcode} ${city}`, 124, 666)
+    drawText(birthplace, 240, 686)
 
     // reason
-    drawText('x', 59, ys[reason], 12)
+    drawText('x', 46, ys[reason], 18)
     let locationSize = getIdealFontSize(font, city, 83, 7, 11)
     if (!locationSize) {
       locationSize = 7
     }
-    drawText(city, 93, 122, locationSize)
-    drawText(date, 76, 92, 11)
-    drawText(hour, 246, 92, 11)
+    drawText(city, 93, 78, locationSize)
+    drawText(date, 76, 58, 11)
+    drawText(hour, 246, 58, 11)
 
     // creation date
     drawText('Date de création:', 479, 130, 6)
@@ -100,7 +100,7 @@ export default ({ app }, inject) => {
       const { width, height } = page1.getSize()
       page1.drawImage(pngImage, {
         x: width / 2 - 170,
-        y: height / 2 - 400,
+        y: height / 2 - 400 + 80,
         width: pngDims.width,
         height: pngDims.height
       })
